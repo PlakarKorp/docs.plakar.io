@@ -1,18 +1,18 @@
 baseURL = "https://docs.plakar.io/"
 languageCode = "en-us"
-title = "plakar.io"
+title = "docs.plakar.io"
 theme = "plakar-io"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 
 [Languages]
 [Languages.en]
-  title = "plakar.io"
+  title = "docs.plakar.io"
   weight = 1
   languageName = "English"
 
 [Languages.fr]
-  title = "plakar.io"
+  title = "docs.plakar.io"
   weight = 2
   languageName = "Français"
 
