@@ -8,7 +8,7 @@ pre = "<b>4. </b>"
 
 ## Join the Plakar community !
 
-As Plakar evolves into both a Community Edition (free, open-source) and Enterprise Edition (with additional features and commercial support),
+As Plakar evolves into both a Community Edition (free and open-source) and Enterprise Edition (with additional features and commercial support),
 we invite everyone to join our growing community.
 
 Connect with developers,
