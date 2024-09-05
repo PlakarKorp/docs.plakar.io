@@ -11,7 +11,13 @@ pre = "<b>4. </b>"
 As Plakar evolves into both a Community Edition (free, open-source) and Enterprise Edition (with additional features and commercial support),
 we invite everyone to join our growing community.
 
-Connect with developers, users, and contributors in real time, share feedback, and stay updated on the latest features.
-Whether you're using the Community or Enterprise Edition, everyone is welcome!
+Connect with developers,
+users,
+and contributors in real time,
+share feedback,
+and stay updated on the latest features.
+
+Whether you're using the Community or Enterprise Edition,
+everyone is welcome!
 
 [Join our Discord server here!](https://discord.gg/uuegtnF2Q5)
