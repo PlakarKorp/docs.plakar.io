@@ -11,10 +11,10 @@ defaultContentLanguageInSubdir = true
   weight = 1
   languageName = "English"
 
-#[Languages.fr]
-#  title = "docs.plakar.io"
-#  weight = 2
-#  languageName = "Français"
+[Languages.fr]
+  title = "docs.plakar.io"
+  weight = 2
+  languageName = "Français"
 
 
 [outputs]
