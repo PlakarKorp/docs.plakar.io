@@ -11,10 +11,10 @@ defaultContentLanguageInSubdir = true
   weight = 1
   languageName = "English"
 
-#[Languages.fr]
-#  title = "docs.plakar.io"
-#  weight = 2
-#  languageName = "Français"
+[Languages.fr]
+  title = "docs.plakar.io"
+  weight = 2
+  languageName = "Français"
 
 
 [outputs]
@@ -47,7 +47,7 @@ home = [ "HTML", "RSS", "JSON"]
   disableLandingPageButton = false
 
   # When using mulitlingual website, disable the switch language button.
-  disableLanguageSwitchingButton = true
+  disableLanguageSwitchingButton = false
 
   # Hide breadcrumbs in the header and only show the current page title
   disableBreadcrumb = false
