@@ -60,5 +60,5 @@ go install github.com/PlakarLabs/plakar/cmd/plakar@latest
 
 ## Discussions
 
-Discussions and questions regarding the project can take place at [Github discussions](https://github.com/poolpOrg/plakar/discussions),
+Discussions and questions regarding the project can take place at [Github discussions](https://github.com/PlakarLabs/plakar/discussions),
 or on the [Discord channel](https://discord.gg/uuegtnF2Q5).
