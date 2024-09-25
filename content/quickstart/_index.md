@@ -174,15 +174,15 @@ $
 ```
 
 
-### Browser
+### UI
 
 It is possible to launch a read-only browser viewer on a repository,
 encrypted or not,
 using the following command:
 
 ```sh
-$ plakar browser
-lauching browser API at http://localhost:40717
+$ plakar ui
+lauching ui API at http://localhost:40717
 ```
 
 If launching a browser does not work on your system,
