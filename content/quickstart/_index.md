@@ -33,15 +33,14 @@ $ plakar on /tmp/plakar create -no-encryption
 $
 ```
 
-
-There are **MANY** operations that can be done within a repository,
-but we'll have a look at the main ones: `push` to create a snapshot, `ls` to list snapshots and `pull` to restore a snapshot.
+Once a repository is created,
+there are **MANY** operations that can be done upon it.
 
 
 ### Pushing snapshots
 
-Once a repository is created,
-backups can be stored in it by pushing snapshots:
+First of all,
+backups can be stored in a repository by pushing snapshots:
 
 ```sh
 $ plakar push /bin
@@ -64,9 +63,9 @@ The content of a repository can be listed with `ls`:
 
 ```sh
 $ plakar ls       
-2022-04-08T00:27:36Z  7ffa415c     13 MB /bin
-2022-04-08T00:27:37Z  0fe4c857     13 MB /bin
-2022-04-08T00:27:38Z  66052edc     13 MB /bin
+2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
+2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
+2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
 $
 ```
 
@@ -78,7 +77,7 @@ The output above shows the three snapshots pushed above as well as a few informa
 Any snapshot can be restored with the `pull` command:
 
 ```sh
-$ plakar pull 7ffa415c
+$ plakar pull 744d45ed
 $
 ```
 
@@ -125,6 +124,79 @@ total 25072
 -rw-r--r--  1 gilles  staff  1377760  8 Apr 02:32 zsh
 $
 ```
+
+
+### Validating snapshots health
+
+Sometimes you want to validate that a backup is restorable without actually restoring it to disk.
+
+The `plakar check` requests data from the repository,
+recomputes cryptographic checksums,
+and discards the data to effectively simulate a recovery without requiring restore space.
+
+```sh
+$ plakar check 744d45ed && echo "backup ok"
+backup ok
+```
+
+
+### Repository cloning
+
+Repositories may be cloned into exact copies,
+a feature useful to replicate backups:
+
+```sh
+$ plakar ls
+2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
+2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
+2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
+
+$ ls -l /tmp/plakar
+ls: /tmp/plakar: No such file or directory
+
+$ plakar clone to /tmp/plakar
+
+$ plakar on /tmp/plakar ls
+2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
+2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
+2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
+$
+```
+
+The clone repository posseses the same configuration,
+passphrase if encrypted,
+and data as the source repository *at time of cloning*.
+
+
+
+### Repositories synchronization
+
+Snapshots can be passed from a repository to another through a process of synchronization.
+Synchronization works for clones that share the same configuration,
+but it also works between repositories which aren't clones by transparently transcoding from a configuration to another.
+
+``sh
+$ plakar push /bin
+$ plakar ls
+2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
+2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
+2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
+2024-10-01T14:40:28Z  b6f501f4     12 MB        0s /bin
+
+$ plakar on /tmp/plakar ls
+2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
+2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
+2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
+
+$ plakar sync to /tmp/plakar
+$ plakar on /tmp/plakar ls
+2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
+2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
+2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
+2024-10-01T14:40:28Z  b6f501f4     12 MB        0s /bin
+$ 
+```
+
 
 ### Snapshot ID
 

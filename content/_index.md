@@ -1,21 +1,22 @@
 # What's plakar ?
 
-`plakar` is a **free** and [opensource](https://github.com/poolpOrg/plakar) utility to create versionned backups with compression,
-encryption and data deduplication.
+`plakar` is a **free** and [opensource](https://github.com/poolpOrg/plakar) utility to create
+**distributed**, **versionned** **backups** with **compression**, **encryption** and data **deduplication**.
 
-It is designed to be dead simple to use,
-requiring only a few minutes to get familiar with most commands.
-Creating a backup is as easy as typing `plakar push` and restoring as easy as typing `plakar pull`.
+With a very clear goal to simplify backups,
+it is designed to be **straightforward** to use.
+It requires a few secomds to install and only a few minutes to get backups set up and running:
+creating a backup is as simple as typing `plakar push` and restoring as simple as typing `plakar pull`.
 
-`plakar` is written in [Go](https://go.dev),
+`plakar` is written in [Golang](https://go.dev),
 developed primarily on [macOS](https://www.apple.com/macos/) and [OpenBSD](https://www.OpenBSD.org),
-built and tested on Linux,
-and it should work on most modern Unix-like system.
+tested on several [Linux](https://fr.wikipedia.org/wiki/Linux) systems,
+and should work on most modern Unix-like system.
 
 
 ## License
 
-It is distributed under the ISC license, as follows:
+It is distributed under the OpenBSD license, as follows:
 
 ```text
 Copyright (c) 2021 Gilles Chehade <gilles@poolp.org>
@@ -35,24 +36,32 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 Or put simpler:
 do whatever you want with is as long as you retain this copyright,
-and use at your own risks because it is given as is and I won't be responsible if it blows at your face.
+and use at your own risks.
 
 
-## Versions
+## Current state
 
-At this early stage of development,
-it is not suitable for production and should only be used for testing purposes.
-
-It doesn't have a version number assigned yet.
+At this stage of development,
+it is not yet suitable for production and should be used for testing purposes.
 
 
 ## Requirements
 
-It requires Go 1.16 or higher.
+It requires Go 1.22 or higher.
 
 
 ## Installation
 
+Until a first version is released and packaged,
+`plakar` may be installed via two methods.
+
+
+### Web installer
+```sh
+curl -s http://plakar.io/install.sh | sh
+```
+
+### Go installer
 ```sh
 go install github.com/PlakarLabs/plakar/cmd/plakar@latest
 ```
