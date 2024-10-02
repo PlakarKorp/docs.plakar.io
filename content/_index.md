@@ -14,6 +14,22 @@ tested on several [Linux](https://fr.wikipedia.org/wiki/Linux) systems,
 and should work on most modern Unix-like system.
 
 
+## How does it work ?
+
+**Data collection:** Plakar scans and collects data from specified sources, such as directories or files, that need to be backed up.
+
+**Deduplication:** As it processes data, Plakar identifies and removes duplicate chunks of data. This means only unique data is stored, reducing the overall storage requirements.
+
+**Compression:** The unique data chunks are then compressed to save even more space.
+
+**Encryption:** After compression, the data is encrypted to ensure security and privacy. This step makes sure that only authorized users can access the backed-up data.
+
+**Storage Management:** Plakar stores the processed data in a structured repository. It keeps track of metadata and versions, allowing users to efficiently access, restore, and manage backups.
+
+**Restoration:** When needed, Plakar can restore files or directories from the backup repository. Since it knows the structure and contents of each backup, it can quickly rebuild the requested data.
+
+This design makes Plakar efficient in terms of storage and performance, while also providing strong data security and integrity.
+
 ## License
 
 It is distributed under the OpenBSD license, as follows:
