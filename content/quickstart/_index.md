@@ -175,7 +175,7 @@ Snapshots can be passed from a repository to another through a process of synchr
 Synchronization works for clones that share the same configuration,
 but it also works between repositories which aren't clones by transparently transcoding from a configuration to another.
 
-``sh
+```sh
 $ plakar push /bin
 $ plakar ls
 2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
