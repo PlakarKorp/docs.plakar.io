@@ -74,7 +74,7 @@ Until a first version is released and packaged,
 
 ### Web installer
 ```sh
-curl -s http://plakar.io/install.sh | sh
+curl -s https://plakar.io/install.sh | sh
 ```
 
 ### Go installer
