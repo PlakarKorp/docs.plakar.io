@@ -72,11 +72,6 @@ Until a first version is released and packaged,
 `plakar` may be installed via two methods.
 
 
-### Web installer
-```sh
-curl -s https://plakar.io/install.sh | sh
-```
-
 ### Go installer
 ```sh
 go install github.com/PlakarLabs/plakar/cmd/plakar@latest
