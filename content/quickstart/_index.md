@@ -51,9 +51,9 @@ $
 
 The `push` commands will scan `/bin` and store content in the repository,
 performing deduplication to avoid storing redundant data:
-the second and third pushes are much faster and do not cause the repository to grow much as they only record structure and metadata informations.
+the second and third pushes are much faster and do not cause the repository to grow much as they only record structure and metadata information.
 
-The snapshots are completely independant,
+The snapshots are completely independent,
 it is possible to delete the first one without affecting the two others even though they relied on the same deduplicated data.
 
 
@@ -69,7 +69,7 @@ $ plakar ls
 $
 ```
 
-The output above shows the three snapshots pushed above as well as a few informations regarding them.
+The output above shows the three snapshots pushed above as well as a few information regarding them.
 
 
 ### Restoring snapshots
@@ -163,7 +163,7 @@ $ plakar on /tmp/plakar ls
 $
 ```
 
-The clone repository posseses the same configuration,
+The clone repository possesses the same configuration,
 passphrase if encrypted,
 and data as the source repository *at time of cloning*.
 
@@ -237,7 +237,7 @@ A lot of commands operate on files within snapshots.
 
 Snapshots provide a filesystem-like interface which allows browsing content using pathnames that are relative to the snapshot ID.
 They are expressed as `ID:/pathname`,
-as can be seen in this command to list the informations regarding `/bin/ls` within snapshot identified by `7f`:
+as can be seen in this command to list the information regarding `/bin/ls` within snapshot identified by `7f`:
 
 ```sh
 $ plakar ls 7f:/bin/ls
@@ -254,7 +254,7 @@ using the following command:
 
 ```sh
 $ plakar ui
-lauching ui API at http://localhost:40717
+launching ui API at http://localhost:40717
 ```
 
 If launching a browser does not work on your system,

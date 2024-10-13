@@ -17,7 +17,7 @@ regardless of the local disk or memory space available.
 
 When the `-fast` option is provided,
 it returns the checksum as it was recorded in the snapshot index,
-allowing to quickly compare checkums but offering no guarantees that the data was not altered if the repository is not trusted.
+allowing to quickly compare checksums but offering no guarantees that the data was not altered if the repository is not trusted.
 
 ## Usage
 
