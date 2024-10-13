@@ -5,7 +5,7 @@
 
 With a very clear goal to simplify backups,
 it is designed to be **straightforward** to use.
-It requires a few secomds to install and only a few minutes to get backups set up and running:
+It requires a few seconds to install and only a few minutes to get backups set up and running:
 creating a backup is as simple as typing `plakar push` and restoring as simple as typing `plakar pull`.
 
 `plakar` is written in [Golang](https://go.dev),
@@ -30,6 +30,7 @@ and should work on most modern Unix-like system.
 
 This design makes Plakar efficient in terms of storage and performance, while also providing strong data security and integrity.
 
+
 ## License
 
 It is distributed under the OpenBSD license, as follows:
@@ -51,7 +52,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ```
 
 Or put simpler:
-do whatever you want with is as long as you retain this copyright,
+do whatever you want with it as long as you retain this copyright,
 and use at your own risks.
 
 
@@ -69,10 +70,11 @@ It requires Go 1.22 or higher.
 ## Installation
 
 Until a first version is released and packaged,
-`plakar` may be installed via two methods.
+`plakar` may be installed via the following methods.
 
 
 ### Go installer
+
 ```sh
 go install github.com/PlakarLabs/plakar/cmd/plakar@latest
 ```
