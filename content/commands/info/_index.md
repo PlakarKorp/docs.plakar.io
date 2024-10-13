@@ -3,12 +3,12 @@ title = "info"
 date = 2022-03-13T23:27:47+01:00
 weight = 5
 chapter = false
-description = "display informations regarding a repository, a snapshot or a resource"
+description = "display information regarding a repository, a snapshot or a resource"
 +++
 
 ## Description
 
-The `plakar info` command is used to display informations regarding a repository or a particular snapshot.
+The `plakar info` command is used to display information regarding a repository or a particular snapshot.
 
 ## Usage
 
@@ -18,7 +18,7 @@ The `plakar info` command is used to display informations regarding a repository
 
 ## Examples
 
-Displaying general informations regarding the repository:
+Displaying general information regarding the repository:
 
 ```sh
 % plakar info
@@ -33,7 +33,7 @@ Index Size: 35 kB (35178 bytes)
 Filesystem Size: 22 kB (22453 bytes)
 ```
 
-or informations regarding a particular snapshot:
+or information regarding a particular snapshot:
 
 ```sh
 $ plakar info 23e

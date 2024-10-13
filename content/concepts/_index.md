@@ -78,12 +78,12 @@ $
 
 In some situations,
 such as above,
-the space consumed will even be smaller than that of a single snapshot as the snapshot may contain duplicate informations itself,
+the space consumed will even be smaller than that of a single snapshot as the snapshot may contain duplicate information itself,
 or may compress well.
 
 
 Contrarily to incremental backups,
-snapshots are truly independant one from another and do not assume the existence of any other snapshot.
+snapshots are truly independent one from another and do not assume the existence of any other snapshot.
 It is possible to compare the differences between a snapshot and any other snapshot,
 just as it is possible to delete a snapshot without affecting any of the subsequent snapshots:
 

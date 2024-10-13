@@ -24,7 +24,7 @@ The `plakar ls` command is used to list snapshots or resources within snapshots,
 ## Examples
 
 Listing the content of a repository,
-then the content of a snapshot's `/privte/etc` directory and displaying the last 3 entries:
+then the content of a snapshot's `/private/etc` directory and displaying the last 3 entries:
 
 ```sh
 $ plakar ls
