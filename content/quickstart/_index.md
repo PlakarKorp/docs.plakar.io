@@ -37,21 +37,21 @@ Once a repository is created,
 there are **MANY** operations that can be done upon it.
 
 
-### Pushing snapshots
+### Creating snapshots
 
 First of all,
-backups can be stored in a repository by pushing snapshots:
+backups can be stored in a repository by creating snapshots:
 
 ```sh
-$ plakar push /bin
-$ plakar push /bin
-$ plakar push /bin
+$ plakar backup /bin
+$ plakar backup /bin
+$ plakar backup /bin
 $
 ```
 
-The `push` commands will scan `/bin` and store content in the repository,
+The `backup` command will scan `/bin` and store content in the repository,
 performing deduplication to avoid storing redundant data:
-the second and third pushes are much faster and do not cause the repository to grow much as they only record structure and metadata information.
+the second and third backups are much faster and do not cause the repository to grow much as they only record structure and metadata information.
 
 The snapshots are completely independent,
 it is possible to delete the first one without affecting the two others even though they relied on the same deduplicated data.
@@ -74,10 +74,10 @@ The output above shows the three snapshots pushed above as well as a few informa
 
 ### Restoring snapshots
 
-Any snapshot can be restored with the `pull` command:
+Any snapshot can be restored with the `restore` command:
 
 ```sh
-$ plakar pull 744d45ed
+$ plakar restore 744d45ed
 $
 ```
 
@@ -126,16 +126,16 @@ $
 ```
 
 
-### Validating snapshots health
+### Verifying snapshots health
 
 Sometimes you want to validate that a backup is restorable without actually restoring it to disk.
 
-The `plakar check` requests data from the repository,
+The `plakar verify` requests data from the repository,
 recomputes cryptographic checksums,
 and discards the data to effectively simulate a recovery without requiring restore space.
 
 ```sh
-$ plakar check 744d45ed && echo "backup ok"
+$ plakar verify 744d45ed && echo "backup ok"
 backup ok
 ```
 
@@ -176,7 +176,7 @@ Synchronization works for clones that share the same configuration,
 but it also works between repositories which aren't clones by transparently transcoding from a configuration to another.
 
 ```sh
-$ plakar push /bin
+$ plakar backup /bin
 $ plakar ls
 2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
 2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
@@ -210,21 +210,21 @@ it is possible to provide the first characters and plakar will complete the miss
 The following command:
 
 ```sh
-$ plakar pull 7ffa415c
+$ plakar restore 7ffa415c
 $
 ```
 
 can be expressed as:
 
 ```sh
-$ plakar pull 7ffa
+$ plakar restore 7ffa
 $
 ```
 
 or even:
 
 ```sh
-$ plakar pull 7
+$ plakar restore 7
 $
 ```
 

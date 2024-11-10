@@ -51,7 +51,7 @@ both of the filesystem structure and files,
 then records that representation as a versioned snapshot in a repository:
 
 ```sh
-$ plakar on /tmp/foobar push /bin            
+$ plakar on /tmp/foobar backup /bin            
 $ plakar on /tmp/foobar ls
 2022-04-08T21:38:50Z  21a403b1-b022-40dd-95ad-5b78a90360dd     13 MB /bin
 $
@@ -61,10 +61,10 @@ Snapshots are space efficient as they may contain the same files as other snapsh
 creating multiple snapshots of the same directory will consume roughly the size a single copy would consume with a little overhead due to snapshot-specific metadata:
 
 ```sh
-$ plakar on /tmp/foobar push /bin
-$ plakar on /tmp/foobar push /bin
-$ plakar on /tmp/foobar push /bin
-$ plakar on /tmp/foobar push /bin
+$ plakar on /tmp/foobar backup /bin
+$ plakar on /tmp/foobar backup /bin
+$ plakar on /tmp/foobar backup /bin
+$ plakar on /tmp/foobar backup /bin
 $ plakar on /tmp/foobar ls
 2022-04-08T21:38:50Z  21a403b1-b022-40dd-95ad-5b78a90360dd     13 MB /bin
 2022-04-08T21:38:51Z  976ed175-206a-418d-b960-7d0736d41b46     13 MB /bin
@@ -91,7 +91,7 @@ just as it is possible to delete a snapshot without affecting any of the subsequ
 $ plakar on /tmp/foobar rm 21a403b1 976ed175 8271734e 273c9764
 $ plakar ls
 2022-04-08T21:38:52Z  70e1de7a-e410-4ad4-b441-f4f40977232b     13 MB /bin
-$ plakar on /tmp/foobar pull 70e1de7a:/bin
+$ plakar on /tmp/foobar restore 70e1de7a:/bin
 $ ls bin
 [               csh             echo            ksh             mkdir           rm              sync            zsh
 bash            dash            ed              launchctl       mv              rmdir           tcsh

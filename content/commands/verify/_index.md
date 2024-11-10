@@ -1,14 +1,14 @@
 +++
-title = "check"
+title = "verify"
 date = 2022-03-13T23:27:47+01:00
 weight = 5
 chapter = false
-description = "check health of a repository, snapshot or resource"
+description = "verify health of a repository, snapshot or resource"
 +++
 
 ## Description
 
-`plakar check` performs a health check on snapshots without restoring them to the filesystem.
+`plakar verify` performs a health check on snapshots without restoring them to the filesystem.
 
 By default,
 it performs a full check making sure that it can retrieve everything it needs for a full restore,
@@ -26,27 +26,27 @@ but is only suitable if there's confidence that the repository is trusted and no
 
 ## Usage
 
-`plakar check snapshotID`
+`plakar verify snapshotID`
 
-`plakar check snapshotID:/path/to/file`
+`plakar verify snapshotID:/path/to/file`
 
 
 ## Examples
 
-Performing a check then a fast check on snapshot `b3`:
+Performing a verify then a fast verify on snapshot `b3`:
 ```sh
-$ plakar check b3 && echo ok
+$ plakar verify b3 && echo ok
 ok
 
-$ plakar check -fast b3 && echo ok
+$ plakar verify -fast b3 && echo ok
 ok
 ```
 
-Performing a check on a file within snapshot `b3`:
+Performing a verify on a file within snapshot `b3`:
 ```sh
-$ plakar check b3:/private/etc/passwd && echo ok
+$ plakar verify b3:/private/etc/passwd && echo ok
 ok
 
-$ plakar check -fast b3:/private/etc/passwd && echo ok
+$ plakar verify -fast b3:/private/etc/passwd && echo ok
 ok
 ```

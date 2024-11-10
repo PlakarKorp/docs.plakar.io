@@ -6,7 +6,7 @@
 With a very clear goal to simplify backups,
 it is designed to be **straightforward** to use.
 It requires a few seconds to install and only a few minutes to get backups set up and running:
-creating a backup is as simple as typing `plakar push` and restoring as simple as typing `plakar pull`.
+creating a backup is as simple as typing `plakar backup` and restoring as simple as typing `plakar restore`.
 
 `plakar` is written in [Golang](https://go.dev),
 developed primarily on [macOS](https://www.apple.com/macos/) and [OpenBSD](https://www.OpenBSD.org),
@@ -76,11 +76,11 @@ Until a first version is released and packaged,
 ### Go installer
 
 ```sh
-go install github.com/PlakarLabs/plakar/cmd/plakar@latest
+go install github.com/PlakarKorp/plakar/cmd/plakar@latest
 ```
 
 
 ## Discussions
 
-Discussions and questions regarding the project can take place at [Github discussions](https://github.com/PlakarLabs/plakar/discussions),
+Discussions and questions regarding the project can take place at [Github discussions](https://github.com/orgs/PlakarKorp/discussions),
 or on the [Discord channel](https://discord.gg/uuegtnF2Q5).
