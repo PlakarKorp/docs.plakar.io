@@ -1,261 +1,336 @@
 +++
-title = "Quickstart"
-date = 2022-03-13T23:27:47+01:00
+title = "Quick start"
+date = "2025-02-19 21:00:00 +0100"
 weight = 1
 chapter = false
 pre = "<b>1. </b>"
 +++
 
-## Quickstart
 
-### Create a repository
+This article will guide you through the creation of your first backup with plakar.
 
-Backups are stored in repositories,
-so before you can create your first snapshots you need to create a destination repository that will host them.
 
-For the purpose of this tutorial,
-the repository will not be encrypted to avoid being prompted for a passphrase on each command.
-For encrypted repositories,
-simply drop the `-no-encryption` option and things will work **exactly** the same:
+## Installing plakar
 
-```sh
-$ plakar create -no-encryption
+The first step is to install the software.
+
+At the time of this writing, we do not yet provide packages and `plakar` has to be installed manually:
+
+```tt
+$ go install https://github.com/PlakarKorp/plakar@latest
+```
+
+This will ensure that dependencies are installed and you should be able to verify the command is properly installed:
+
+```tt
+$ plakar version
+v0.4.27-alpha
 $
 ```
 
-When no path is provided,
-the repository is created in `~/.plakar`.
-It is possible to create it elsewhere,
-in which case the path has to be provided on the command line as such:
+## Running the local agent
 
-```sh
-$ plakar on /tmp/plakar create -no-encryption
+To work efficiently,
+`plakar` requires each user to run a local agent that will provide caching among other things.
+If the agent is not running,
+the `plakar` CLI will operate in degraded mode as a safety net,
+but will disallow concurrent commands and won't benefit from caching.
+
+```tt
+$ plakar agent
+agent started with pid=12539
 $
 ```
 
-Once a repository is created,
-there are **MANY** operations that can be done upon it.
-
-
-### Creating snapshots
-
-First of all,
-backups can be stored in a repository by creating snapshots:
-
-```sh
-$ plakar backup /bin
-$ plakar backup /bin
-$ plakar backup /bin
-$
-```
-
-The `backup` command will scan `/bin` and store content in the repository,
-performing deduplication to avoid storing redundant data:
-the second and third backups are much faster and do not cause the repository to grow much as they only record structure and metadata information.
-
-The snapshots are completely independent,
-it is possible to delete the first one without affecting the two others even though they relied on the same deduplicated data.
-
-
-### Listing snapshots
-
-The content of a repository can be listed with `ls`:
-
-```sh
-$ plakar ls       
-2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
-2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
-2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
-$
-```
-
-The output above shows the three snapshots pushed above as well as a few information regarding them.
-
-
-### Restoring snapshots
-
-Any snapshot can be restored with the `restore` command:
-
-```sh
-$ plakar restore 744d45ed
-$
-```
-
-The command above recreates the structure of the snapshot,
-in this case a `bin` directory filled with underlying files:
-
-```sh
-$ ls -l bin/
-total 25072
--rw-r--r--  1 gilles  staff   150624  8 Apr 02:32 [
--rw-r--r--  1 gilles  staff  1326576  8 Apr 02:32 bash
--rw-r--r--  1 gilles  staff   151792  8 Apr 02:32 cat
--rw-r--r--  1 gilles  staff   136960  8 Apr 02:32 chmod
--rw-r--r--  1 gilles  staff   152672  8 Apr 02:32 cp
--rw-r--r--  1 gilles  staff  1153456  8 Apr 02:32 csh
--rw-r--r--  1 gilles  staff   307296  8 Apr 02:32 dash
--rw-r--r--  1 gilles  staff   168112  8 Apr 02:32 date
--rwxr-xr-x  1 gilles  staff   185088  8 Apr 02:32 dd
--rw-r--r--  1 gilles  staff   151264  8 Apr 02:32 df
--rw-r--r--  1 gilles  staff   150336  8 Apr 02:32 echo
--rw-r--r--  1 gilles  staff   235296  8 Apr 02:32 ed
--rw-r--r--  1 gilles  staff   151008  8 Apr 02:32 expr
--rw-r--r--  1 gilles  staff   150336  8 Apr 02:32 hostname
--rw-r--r--  1 gilles  staff   150736  8 Apr 02:32 kill
--rw-r--r--  1 gilles  staff  2599008  8 Apr 02:32 ksh
--rw-r--r--  1 gilles  staff   360752  8 Apr 02:32 launchctl
--rw-r--r--  1 gilles  staff   134736  8 Apr 02:32 link
--rw-r--r--  1 gilles  staff   134736  8 Apr 02:32 ln
--rw-r--r--  1 gilles  staff   187040  8 Apr 02:32 ls
--rw-r--r--  1 gilles  staff   134128  8 Apr 02:32 mkdir
--rw-r--r--  1 gilles  staff   135552  8 Apr 02:32 mv
--rw-r--r--  1 gilles  staff   320688  8 Apr 02:32 pax
--rw-r--r--  1 gilles  staff   203504  8 Apr 02:32 ps
--rw-r--r--  1 gilles  staff   150320  8 Apr 02:32 pwd
--rw-r--r--  1 gilles  staff   135408  8 Apr 02:32 rm
--r-xr-xr-x  1 gilles  staff   133808  8 Apr 02:32 rmdir
--rw-r--r--  1 gilles  staff   150384  8 Apr 02:32 sh
--rw-r--r--  1 gilles  staff   150288  8 Apr 02:32 sleep
--rw-r--r--  1 gilles  staff   149936  8 Apr 02:32 sync
--rwxr-xr-x  1 gilles  staff  1153456  8 Apr 02:32 tcsh
--rw-r--r--  1 gilles  staff   150624  8 Apr 02:32 test
--rwxr-xr-x  1 gilles  staff   135408  8 Apr 02:32 unlink
--rw-r--r--  1 gilles  staff   150208  8 Apr 02:32 wait4path
--rw-r--r--  1 gilles  staff  1377760  8 Apr 02:32 zsh
+The agent can be stopped with the following command:
+```tt
+$ plakar agent -stop
 $
 ```
 
 
-### Verifying snapshots health
 
-Sometimes you want to validate that a backup is restorable without actually restoring it to disk.
-
-The `plakar verify` requests data from the repository,
-recomputes cryptographic checksums,
-and discards the data to effectively simulate a recovery without requiring restore space.
-
-```sh
-$ plakar verify 744d45ed && echo "backup ok"
-backup ok
-```
+## Creating your first local repository
 
 
-### Repository cloning
+The `plakar` software reads your data,
+splits it into smaller chunks that it deduplicates and stores in a `repository`,
+a fancy word to designate storage space dedicated to hold these chunks.
 
-Repositories may be cloned into exact copies,
-a feature useful to replicate backups:
+A `repository` can be a directory on your local filesystem,
+a mountpoint to your NAS,
+a remote directory over SFTP,
+a bucket on an S3 object store,
+or any storage we provide (or you write) a connector for.
 
-```sh
-$ plakar ls
-2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
-2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
-2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
+Our first repository will be a directory at `/var/backups`:
 
-$ ls -l /tmp/plakar
-ls: /tmp/plakar: No such file or directory
-
-$ plakar clone to /tmp/plakar
-
-$ plakar on /tmp/plakar ls
-2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
-2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
-2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
+```tt
+$ plakar at /var/backups create
+repository passphrase: 
+repository passphrase (confirm):
 $
 ```
 
-The clone repository possesses the same configuration,
-passphrase if encrypted,
-and data as the source repository *at time of cloning*.
+> Be extra careful when chosing the passphrase: 
+> it is the secret protecting your data.
+> People with both access to the repository and knowledge of the passphrase can read your backups.
+>
+> **DO NOT LOSE OR FORGET THE PASSPHRASE:**
+> it is not stored anywhere and can't be recovered in case of loss.
+> A lost passphrase means the data within the repository can no longer be recovered.
 
+It is also possible to create unencrypted repositories,
+should your backups remain local,
+in which case the `-no-encryption` option has to be passed at creation:
 
-
-### Repositories synchronization
-
-Snapshots can be passed from a repository to another through a process of synchronization.
-Synchronization works for clones that share the same configuration,
-but it also works between repositories which aren't clones by transparently transcoding from a configuration to another.
-
-```sh
-$ plakar backup /bin
-$ plakar ls
-2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
-2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
-2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
-2024-10-01T14:40:28Z  b6f501f4     12 MB        0s /bin
-
-$ plakar on /tmp/plakar ls
-2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
-2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
-2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
-
-$ plakar sync to /tmp/plakar
-$ plakar on /tmp/plakar ls
-2024-10-01T13:45:53Z  c3e3d079     12 MB        0s /bin
-2024-10-01T13:45:54Z  a081bddb     12 MB        0s /bin
-2024-10-01T13:45:55Z  744d45ed     12 MB        0s /bin
-2024-10-01T14:40:28Z  b6f501f4     12 MB        0s /bin
-$ 
-```
-
-
-### Snapshot ID
-
-Each snapshot is assigned an ID to allow referencing it in subcommands.
-
-To make it easier for humans,
-`plakar` uses prefix-based lookups so that the ID does not need to be typed entirely.
-Whenever a snapshot ID is expected,
-it is possible to provide the first characters and plakar will complete the missing part **as long as the first characters do not resolve to multiple snapshots**.
-
-The following command:
-
-```sh
-$ plakar restore 7ffa415c
+```tt
+$ plakar at /var/backups create -no-encryption
 $
 ```
 
-can be expressed as:
+Note that once a repository is created,
+it is no longer possible to change its configuration,
+such changes require creating a new repository and performing a synchronization between old and new repository.
 
-```sh
-$ plakar restore 7ffa
+
+## Creating your first local backup
+
+
+Once the repository is created,
+we can do the first backup to it:
+```tt
+$ plakar at /var/backups backup /private/etc
+9abc3294: OK ✓ /private/etc/ftpusers
+9abc3294: OK ✓ /private/etc/asl/com.apple.iokit.power
+9abc3294: OK ✓ /private/etc/pam.d/screensaver_new_ctk
+[...]
+9abc3294: OK ✓ /private/etc/apache2
+9abc3294: OK ✓ /private/etc
+9abc3294: OK ✓ /private
+9abc3294: OK ✓ /
+backup: created unsigned snapshot 9abc3294 of size 3.1 MB in 72.55875ms
 $
 ```
 
-or even:
+You can verify that it is properly recorded:
 
-```sh
-$ plakar restore 7
+```tt
+$ plakar at /var/backups ls
+2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
 $
 ```
 
-because no other snapshot has an ID that begins with `7ffa` or `7`.
+Verify the integrity of its content:
+```tt
+$ plakar at /var/backups check 9abc3294
+9abc3294: ✓ /private/etc/afpovertcp.cfg
+9abc3294: ✓ /private/etc/apache2/extra/httpd-autoindex.conf
+9abc3294: ✓ /private/etc/apache2/extra/httpd-dav.conf
+[...]
+9abc3294: ✓ /private/etc/xtab
+9abc3294: ✓ /private/etc/zshrc
+9abc3294: ✓ /private/etc/zshrc_Apple_Terminal
+9abc3294: ✓ /private/etc
+check: verification of 9abc3294:/private/etc completed successfully
+$
+```
 
-
-### Snapshot pathnames
-
-A lot of commands operate on files within snapshots.
-
-Snapshots provide a filesystem-like interface which allows browsing content using pathnames that are relative to the snapshot ID.
-They are expressed as `ID:/pathname`,
-as can be seen in this command to list the information regarding `/bin/ls` within snapshot identified by `7f`:
-
-```sh
-$ plakar ls 7f:/bin/ls
-2022-03-26T07:21:13Z -rwxr-xr-x     root    wheel   187 kB ls
+And restore it to a local directory:
+```tt
+$ plakar at /var/backups restore -to /tmp/restore 9abc3294
+9abc3294: OK ✓ /private/etc/afpovertcp.cfg
+9abc3294: OK ✓ /private/etc/apache2/extra/httpd-autoindex.conf
+9abc3294: OK ✓ /private/etc/apache2/extra/httpd-dav.conf
+[...]
+9abc3294: OK ✓ /private/etc/xtab
+9abc3294: OK ✓ /private/etc/zprofile
+9abc3294: OK ✓ /private/etc/zshrc
+9abc3294: OK ✓ /private/etc/zshrc_Apple_Terminal
+restore: restoration of 9abc3294:/private/etc at /tmp/restore completed successfully
+$ ls -l /tmp/restore
+total 1784
+-rw-r--r--@  1 gilles  wheel     515 Feb 19 22:47 afpovertcp.cfg
+drwxr-xr-x@  9 gilles  wheel     288 Feb 19 22:47 apache2
+drwxr-xr-x@ 16 gilles  wheel     512 Feb 19 22:47 asl
+[...]
+-rw-r--r--@  1 gilles  wheel       0 Feb 19 22:47 xtab
+-r--r--r--@  1 gilles  wheel     255 Feb 19 22:47 zprofile
+-r--r--r--@  1 gilles  wheel    3094 Feb 19 22:47 zshrc
+-rw-r--r--@  1 gilles  wheel    9335 Feb 19 22:47 zshrc_Apple_Terminal
 $
 ```
 
 
-### UI
+## Digression: one copy is not enough
 
-It is possible to launch a read-only browser viewer on a repository,
-encrypted or not,
-using the following command:
+You've completed a backup,
+which is great.
+However, if you'll allow me, I'd like to digress for a moment:
 
-```sh
-$ plakar ui
-launching ui API at http://localhost:40717
+
+> Literature and empirical studies suggest that the annual probability of data loss at a single site—especially when considering factors like hardware failures, human error, and environmental risks—is typically in the low single-digit percentages. For example, a seminal study by Pinheiro, Weber, and Barroso (2007) titled "Failure Trends in a Large Disk Drive Population" found that hard drive failure rates generally fall in the range of 2% to 4% per year. In practice, when additional risks beyond basic hardware failure (such as accidental deletion or other operational issues) are factored in, many practitioners adopt a conservative estimate of around 5% per year for a single site.
+
+Assume that the probability of losing data stored in any one repository over the course of a year is 𝑝 = 0.05 (5%),
+and that failures at different sites occur independently.
+
+
+- with one copy the chance of losing the data is simply 𝑝 → 5% (1 in 20).
+- with two copies,
+at different sites,
+data is lost only if both copies are lost so the probability is 𝑝 x 𝑝 = 𝑝<sup>2</sup> → 0.25% (1 in 400).
+- with three copies,
+at different sites,
+all three copies must be lost for the data to be gone, so the probability is
+𝑝 x 𝑝 x 𝑝= 𝑝<sup>3</sup> → 0.0125% (1 in 8000).
+
+Because a chance of 1 in 20 is very likely,
+and a chance of 1 in 400 is still realistic,
+it is generally recommended to have the live data + 2 off-site copies at a bare minimum to fall in the unlikely 1 in 8000 chance range.
+
+
+## Creating a second copy over SFTP
+
+We now have a local repository with a copy of our backups,
+but it is done on the same machine,
+we're currently at 5% chances of losing data this year if the drive dies !
+
+Let's create another repository on my remote NAS over SFTP !
+
+> SFTP is the Secure File Transfer Protocol that comes with OpenSSH.
+
+
+This can be done by creating a new repository there,
+with its own passphrase:
+
+```tt
+$ plakar at sftp://gilles@nas.plakar.io/var/backups create
+repository passphrase: 
+repository passphrase (confirm):
+$
 ```
 
-If launching a browser does not work on your system,
-simply use the `-no-spawn` option and point a browser at the displayed URL yourself.
+We could simply do a new backup to it,
+but this might produce different snapshots as data may have changed since the first backup.
+
+Instead,
+we can perform a repository synchronization.
+A repository synchronization ensures that backups are transfered from a repository to another,
+using the recorded data,
+and performing necessary decryption and encryption to produce a similar copy:
+
+```tt
+$ plakar at /var/backups sync to sftp://gilles@nas.plakar.io/var/backups
+peer repository passphrase: 
+peer repository passphrase (confirm):
+sync: synchronized 1 snapshot
+$ plakar at sftp://gilles@nas.plakar.io/var/backups ls
+2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
+$
+```
+
+We can verify integrity of the snapshot on the second repository:
+
+```tt
+$ plakar at sftp://gilles@nas.plakar.io/var/backups check 9abc3294
+9abc3294: ✓ /private/etc/afpovertcp.cfg
+9abc3294: ✓ /private/etc/apache2/extra/httpd-autoindex.conf
+9abc3294: ✓ /private/etc/apache2/extra/httpd-dav.conf
+[...]
+9abc3294: ✓ /private/etc/xtab
+9abc3294: ✓ /private/etc/zshrc
+9abc3294: ✓ /private/etc/zshrc_Apple_Terminal
+9abc3294: ✓ /private/etc
+check: verification of 9abc3294:/private/etc completed successfully
+$
+```
+
+The probability of losing data has now fallen from 5% to 0.25% (1 in 400) !
+
+
+## Creating a third copy over S3
+
+But what if both my drive died AND the data center hosting my NAS burst in flames ?
+
+Let’s create yet another repository on a remote S3 bucket !
+
+```tt
+$ export S3_REPOSITORY_USER=gilles
+$ export S3_REPOSITORY_PASSWORD=********
+$ plakar at s3://minio.plakar.io:9001/mybackups create
+repository passphrase: 
+repository passphrase (confirm):
+$
+```
+
+Let's do another synchronization !
+
+```tt
+$ plakar at /var/backups sync to s3://minio.plakar.io:9001/mybackups
+peer repository passphrase: 
+peer repository passphrase (confirm):
+sync: synchronized 1 snapshot
+$ plakar at s3://minio.plakar.io:9001/mybackups ls
+2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
+$
+```
+
+
+We can verify integrity of the snapshot on the third repository:
+
+```tt
+$ plakar at s3://minio.plakar.io:9001/mybackups check 9abc3294
+9abc3294: ✓ /private/etc/afpovertcp.cfg
+9abc3294: ✓ /private/etc/apache2/extra/httpd-autoindex.conf
+9abc3294: ✓ /private/etc/apache2/extra/httpd-dav.conf
+[...]
+9abc3294: ✓ /private/etc/xtab
+9abc3294: ✓ /private/etc/zshrc
+9abc3294: ✓ /private/etc/zshrc_Apple_Terminal
+9abc3294: ✓ /private/etc
+check: verification of 9abc3294:/private/etc completed successfully
+$
+```
+
+The probability of losing data has now fallen from 0.25% to 0.0125% (1 in 8000) !
+
+
+## A few additional words on synchronization
+
+Repository synchronization is slightly more advanced than what was shown,
+and you are encouraged to experiment with it to find the best worflow for your use-case.
+
+This first command locates snapshots that exist in my local repository but not in the remote one,
+then sends them over:
+
+```tt
+$ plakar at /var/backups sync to s3://minio.plakar.io:9001/mybackups
+```
+
+This second command locates snapshots that exist in the remote repository but not in the local one to bring them over:
+
+```tt
+$ plakar at /var/backups sync from s3://minio.plakar.io:9001/mybackups
+```
+
+And this last command does it both ways,
+pushing to the remote repositories snapshots that exist locally and are missing,
+but also fetching locally snapshots that only exist remotely:
+
+```tt
+$ plakar at /var/backups sync with s3://minio.plakar.io:9001/mybackups
+```
+
+In addition,
+all these commands support passing snapshot identifiers and various options to perform partial synchronizations,
+only exchanging snapshots that match certain criterias.
+More information can be found in the [documentation](/commands/sync/).
+
+
+## Automating backup and synchronization
+
+TBD
+
+## Setting up monitoring and alerting
+
+TBD

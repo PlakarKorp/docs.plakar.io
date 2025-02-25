@@ -1,12 +1,11 @@
 +++
-title = "Commands"
+title = "Plakar"
 date = 2022-03-13T23:27:47+01:00
-weight = 3
+weight = 1
 chapter = false
-pre = "<b>3. </b>"
 sort = "title"
 +++
 
-## Documented commands
+## Documented versions
 
 {{%children description="false"%}}
