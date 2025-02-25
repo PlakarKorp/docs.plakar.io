@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: ui
 summary: "Serve the Plakar user interface over HTTP"
 ---
 PLAKAR-UI(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar ui** - Serve the Plakar user interface over HTTP
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar ui**
 \[**-addr**&nbsp;*address*]
@@ -17,7 +17,7 @@ PLAKAR-UI(1) - General Commands Manual
 \[**-no-auth**]
 \[**-no-spawn**]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar ui**
@@ -52,13 +52,13 @@ The options are as follows:
 > The UI will launch, but the user must manually open it by navigating
 > to the specified address.
 
-# EXAMPLES
+## EXAMPLES
 
 Using a custom address and disable automatic browser execution:
 
 	$ plakar ui -addr localhost:9090 -no-spawn
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar ui** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -71,7 +71,7 @@ The **plakar ui** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 > A general error occurred, such as an inability to launch the UI or
 > bind to the specified address.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

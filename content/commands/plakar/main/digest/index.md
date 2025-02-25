@@ -1,21 +1,21 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: digest
 summary: "Calculate digests for files in a Plakar snapshot"
 ---
 PLAKAR-DIGEST(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar digest** - Calculate digests for files in a Plakar snapshot
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar digest**
 \[**-hashing**&nbsp;*algorithm*]
 *snapshotID*:*filepath*&nbsp;\[...]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar digest**
@@ -40,7 +40,7 @@ The options are as follows:
 > to compute the digest.
 > Defaults to SHA256.
 
-# EXAMPLES
+## EXAMPLES
 
 Calculate the digest of a file within a snapshot:
 
@@ -50,7 +50,7 @@ Use BLAKE3 as the digest algorithm:
 
 	$ plakar digest -hashing BLAKE3 abc123:/etc/netstart
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar digest** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -63,7 +63,7 @@ The **plakar digest** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 > An error occurred, such as failure to retrieve a file digest or
 > invalid snapshot ID.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

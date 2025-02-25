@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: backup
 summary: "Create a new snapshot of a directory in a Plakar repository"
 ---
 PLAKAR-BACKUP(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar backup** - Create a new snapshot of a directory in a Plakar repository
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar backup**
 \[**-concurrency**&nbsp;*number*]
@@ -21,7 +21,7 @@ PLAKAR-BACKUP(1) - General Commands Manual
 \[**-tag**&nbsp;*tag*]
 \[*directory*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar backup**
@@ -68,7 +68,7 @@ The options are as follows:
 
 > Specify a tag to assign to the snapshot for easier identification.
 
-# EXAMPLES
+## EXAMPLES
 
 Create a snapshot of the current directory with a tag:
 
@@ -82,7 +82,7 @@ Backup a directory with specific file exclusions:
 
 	$ plakar backup -exclude "*.tmp" -exclude "*.log" /var/www
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar backup** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -95,7 +95,7 @@ The **plakar backup** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 > An error occurred, such as failure to access the repository or issues
 > with exclusion patterns.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

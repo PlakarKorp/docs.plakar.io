@@ -1,20 +1,20 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: find
 summary: "Search for files or directories in Plakar snapshots"
 ---
 PLAKAR-FIND(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar find** - Search for files or directories in Plakar snapshots
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar find**
 *pattern&nbsp;...*
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar find**
@@ -29,7 +29,7 @@ and lists the results chronologically by snapshot creation time.
 > search for in the snapshots.
 > Patterns can be a full pathname or simply a file or directory name.
 
-# EXAMPLES
+## EXAMPLES
 
 Find a file by full pathname:
 
@@ -39,7 +39,7 @@ Find all snapshots containing files or directories named "backup":
 
 	plakar find backup
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar find** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -52,7 +52,7 @@ The **plakar find** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 > An error occurred, such as failure to load snapshots or an invalid
 > pattern.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

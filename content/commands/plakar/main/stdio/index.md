@@ -1,20 +1,20 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: stdio
 summary: "Start Plakar server in stdio mode"
 ---
 PLAKAR-STDIO(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar stdio** - Start Plakar server in stdio mode
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar stdio**
 \[**-no-delete**]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar stdio**
@@ -31,7 +31,7 @@ The options are as follows:
 > When specified, the server will reject any requests that attempt to
 > delete data.
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar stdio** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -44,7 +44,7 @@ The **plakar stdio** utility exits&#160;0 on success, and&#160;&gt;0 if an error
 > An error occurred while starting the stdio server or due to an invalid
 > configuration.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

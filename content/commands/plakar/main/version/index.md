@@ -1,29 +1,29 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: version
 summary: "Display the current version of Plakar"
 ---
 PLAKAR-VERSION(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar version** - Display the current version of Plakar
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar version**
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar version**
 command displays the current version of the Plakar software.
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar version** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

@@ -1,22 +1,22 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: sync
 summary: "Synchronize snapshots between Plakar repositories"
 ---
 PLAKAR-SYNC(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar sync** - Synchronize snapshots between Plakar repositories
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar sync**
 \[*snapshotID*]
 **to**&nbsp;|&nbsp;**from**&nbsp;|&nbsp;**with**
 *repository*
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar sync**
@@ -49,13 +49,13 @@ The arguments are as follows:
 
 > Path to the peer repository to synchronize with.
 
-# EXAMPLES
+## EXAMPLES
 
 Bi-directional synchronization with peer repository:
 
 	$ plakar sync with /path/to/peer/repo
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar sync** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -68,7 +68,7 @@ The **plakar sync** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 > General failure occurred, such as an invalid repository path, snapshot
 > ID mismatch, or network error.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

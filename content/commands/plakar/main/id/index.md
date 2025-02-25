@@ -1,22 +1,22 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: id
 summary: "manage identities for Plakar repositories"
 ---
 PLAKAR(ID) - ID (1)
 
-# NAME
+## NAME
 
 **plakar id** - manage identities for Plakar repositories
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar id**
 \[**-&lt;option&gt;**]
 \[*subcommand*]
 \[*arguments*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar id**
@@ -36,7 +36,7 @@ This command provides subcommands to create new identities, retrieve information
 
 > Lists all available identities in the keyring directory, displaying their metadata.
 
-# ARGUMENTS
+## ARGUMENTS
 
 *subcommand*
 
@@ -60,7 +60,7 @@ This command provides subcommands to create new identities, retrieve information
 > **info**
 > subcommand.
 
-# EXAMPLES
+## EXAMPLES
 
 To illustrate usage:
 
@@ -76,7 +76,7 @@ List all identities:
 
 > > plakar id list
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar id** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -88,7 +88,7 @@ The **plakar id** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 
 > General failure occurred. Detailed error messages are displayed when failures occur.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

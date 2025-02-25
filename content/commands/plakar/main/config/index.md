@@ -1,20 +1,20 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: config
 summary: "Manages plakar configuration"
 ---
 PLAKAR-CONFIG(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar config** - Manages plakar configuration
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar config**
 \[*key*\[=*value*]]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar config**
@@ -33,11 +33,11 @@ to
 is of the form
 '*category*.*option*'.
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar config** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

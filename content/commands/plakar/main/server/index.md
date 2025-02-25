@@ -1,21 +1,21 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: server
 summary: "Start a Plakar server instance"
 ---
 PLAKAR-SERVER(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar server** - Start a Plakar server instance
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar server**
 \[**-allow-delete**]
 \[**-listen**&nbsp;*address*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar server**
@@ -37,7 +37,7 @@ listen *address*
 > The hostname is optional.
 > If not given, the server defaults to listen on localhost at port 9876.
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar server** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -50,7 +50,7 @@ The **plakar server** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 > An error occurred, such as an unsupported protocol or invalid
 > configuration.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

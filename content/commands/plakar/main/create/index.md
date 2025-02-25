@@ -1,21 +1,21 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: create
 summary: "Create a new Plakar repository"
 ---
 PLAKAR-CREATE(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar create** - Create a new Plakar repository
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar create**
 \[**-no-encryption**]
 \[**-no-compression**]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar create**
@@ -39,13 +39,13 @@ The options are as follows:
 > Disable transparent compression for the repository.
 > If specified, the repository will not use compression.
 
-# ENVIRONMENT
+## ENVIRONMENT
 
 `PLAKAR_PASSPHRASE`
 
 > Repository encryption password.
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar create** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -58,7 +58,7 @@ The **plakar create** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 > An error occurred, such as invalid parameters, inability to create the
 > repository, or configuration issues.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-backup(1)

@@ -1,22 +1,22 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: cat
 summary: "Display the contents of a file from a Plakar snapshot"
 ---
 PLAKAR-CAT(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar cat** - Display the contents of a file from a Plakar snapshot
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar cat**
 \[**-no-decompress**]
 \[**-highlight**]
 *snapshotID*:*filepath&nbsp;...*
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar cat**
@@ -38,7 +38,7 @@ The options are as follows:
 
 > Apply syntax highlighting to the output based on the file type.
 
-# EXAMPLES
+## EXAMPLES
 
 Display a file's contents from a snapshot:
 
@@ -48,7 +48,7 @@ Display a file with syntax highlighting:
 
 	$ plakar cat -highlight abc123:/home/op/korpus/driver.sh
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar cat** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -61,7 +61,7 @@ The **plakar cat** utility exits&#160;0 on success, and&#160;&gt;0 if an error o
 > An error occurred, such as failure to retrieve a file or decompress
 > content.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-backup(1)

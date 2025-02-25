@@ -1,20 +1,20 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: diag
 summary: "Display detailed information about Plakar internal structures"
 ---
 PLAKAR-DIAG(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar diag** - Display detailed information about Plakar internal structures
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar diag**
 \[**errors**&nbsp;|&nbsp;**object**&nbsp;|&nbsp;**packfile**&nbsp;|&nbsp;**snapshot**&nbsp;|&nbsp;**state**&nbsp;|&nbsp;**vfs**]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar diag**
@@ -53,7 +53,7 @@ The sub-commands are as follows:
 > listing directory or file attributes, including permissions,
 > ownership, and custom metadata.
 
-# EXAMPLES
+## EXAMPLES
 
 Show repository information:
 
@@ -75,7 +75,7 @@ Display filesystem details for a path within a snapshot:
 
 	$ plakar diag vfs abc123:/etc/passwd
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar diag** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -88,7 +88,7 @@ The **plakar diag** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 > An error occurred, such as an invalid snapshot or object ID, or a
 > failure to retrieve the requested data.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-snapshot(1)

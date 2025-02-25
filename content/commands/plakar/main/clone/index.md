@@ -1,21 +1,21 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: clone
 summary: "Clone a Plakar repository to a new location"
 ---
 PLAKAR-CLONE(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar clone** - Clone a Plakar repository to a new location
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar clone**
 **to**
 *path*
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar clone**
@@ -26,13 +26,13 @@ it at the specified
 The cloned repository is assigned a new unique ID to distinguish it
 from the source repository.
 
-# EXAMPLES
+## EXAMPLES
 
 Clone a repository to a new location:
 
 	plakar clone to /path/to/new/repository
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar clone** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -45,7 +45,7 @@ The **plakar clone** utility exits&#160;0 on success, and&#160;&gt;0 if an error
 > An error occurred, such as failure to access the source repository or
 > to create the target repository.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-create(1)

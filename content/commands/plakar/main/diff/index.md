@@ -1,22 +1,22 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: diff
 summary: "Show differences between files in Plakar snapshots"
 ---
 PLAKAR-DIFF(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar diff** - Show differences between files in Plakar snapshots
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar diff**
 \[**-highlight**]
 *snapshotID1*\[:*path1*]
 *snapshotID2*\[:*path2*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar diff**
@@ -35,7 +35,7 @@ The options are as follows:
 
 > Apply syntax highlighting to the diff output for readability.
 
-# EXAMPLES
+## EXAMPLES
 
 Compare root directories of two snapshots:
 
@@ -47,7 +47,7 @@ across snapshots with highlighting:
 
 	$ plakar diff -highlight abc123:/etc/passwd def456:/etc/passwd
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar diff** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -60,7 +60,7 @@ The **plakar diff** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 > An error occurred, such as invalid snapshot IDs, missing files, or an
 > unsupported file type.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-backup(1)

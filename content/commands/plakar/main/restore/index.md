@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: restore
 summary: "Restore files from a Plakar snapshot"
 ---
 PLAKAR-RESTORE(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar restore** - Restore files from a Plakar snapshot
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar restore**
 \[**-name**&nbsp;*name*]
@@ -27,7 +27,7 @@ PLAKAR-RESTORE(1) - General Commands Manual
 \[**-to**&nbsp;*directory*]
 \[*snapshotID*:*path&nbsp;...*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar restore**
@@ -100,7 +100,7 @@ The options are as follows:
 
 > Suppress output to standard input, only logging errors and warnings.
 
-# EXAMPLES
+## EXAMPLES
 
 Restore all files from a specific snapshot to the current directory:
 
@@ -114,7 +114,7 @@ Restore with rebase option, placing files directly in the target directory:
 
 	$ plakar restore -rebase -to /home/op abc123
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar restore** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -127,7 +127,7 @@ The **plakar restore** utility exits&#160;0 on success, and&#160;&gt;0 if an err
 > An error occurred, such as a failure to locate the snapshot or a
 > destination directory issue.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-backup(1)

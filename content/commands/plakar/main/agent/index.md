@@ -1,20 +1,20 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: agent
 summary: "Run the Plakar agent"
 ---
 PLAKAR-AGENT(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar agent** - Run the Plakar agent
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar agent**
 \[**-prometheus**&nbsp;*address*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar agent**
@@ -34,7 +34,7 @@ The options are as follows:
 > */metrics*
 > endpoint.
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar agent** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -47,7 +47,7 @@ The **plakar agent** utility exits&#160;0 on success, and&#160;&gt;0 if an error
 > An error occurred, such as invalid parameters, inability to create the
 > repository, or configuration issues.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

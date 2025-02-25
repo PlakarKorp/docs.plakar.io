@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: rm
 summary: "Remove snapshots from the Plakar repository"
 ---
 PLAKAR-RM(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar rm** - Remove snapshots from the Plakar repository
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar rm**
 \[**-name**&nbsp;*name*]
@@ -23,7 +23,7 @@ PLAKAR-RM(1) - General Commands Manual
 \[**-since**&nbsp;*date*]
 \[*snapshotID&nbsp;...*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar rm**
@@ -90,7 +90,7 @@ The arguments are as follows:
 > or specific dates in various formats
 > (e.g. 2006-01-02 15:04:05).
 
-# EXAMPLES
+## EXAMPLES
 
 Remove a specific snapshot by ID:
 
@@ -108,7 +108,7 @@ Remove snapshots older than 1 year with a specific tag:
 
 	$ plakar rm -older 1y -tag daily-backup
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar rm** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -121,7 +121,7 @@ The **plakar rm** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 > An error occurred, such as invalid date format or failure to delete a
 > snapshot.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-backup(1)

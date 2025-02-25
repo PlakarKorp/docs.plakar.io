@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: archive
 summary: "Create an archive from a Plakar snapshot"
 ---
 PLAKAR-ARCHIVE(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar archive** - Create an archive from a Plakar snapshot
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar archive**
 \[**-format**&nbsp;*type*]
@@ -17,7 +17,7 @@ PLAKAR-ARCHIVE(1) - General Commands Manual
 \[**-rebase**]
 *snapshotID*:*path*
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar archive**
@@ -61,7 +61,7 @@ The options are as follows:
 > Strip the leading path from archived files, useful for creating "flat"
 > archives without nested directories.
 
-# EXAMPLES
+## EXAMPLES
 
 Create a tarball of the entire snapshot:
 
@@ -75,7 +75,7 @@ Archive with rebasing to remove directory structure:
 
 	$ plakar archive -rebase -format tar abc123
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar archive** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -88,7 +88,7 @@ The **plakar archive** utility exits&#160;0 on success, and&#160;&gt;0 if an err
 > An error occurred, such as unsupported format, missing files, or
 > permission issues.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-backup(1)

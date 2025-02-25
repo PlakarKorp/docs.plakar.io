@@ -62,7 +62,7 @@ title: ${DOC_NAME}
 summary: "${SUMMARY}"
 ---
 EOF
-    cat ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} >> ./content/commands/plakar/${VERSION}/${DOC_NAME}/index.md
+    cat ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} | sed 's/^#/##/g' >> ./content/commands/plakar/${VERSION}/${DOC_NAME}/index.md
     I=`expr $I + 1`
 done
 

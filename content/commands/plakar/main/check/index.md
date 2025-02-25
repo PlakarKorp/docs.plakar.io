@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: check
 summary: "Check data integrity in a Plakar repository or snapshot"
 ---
 PLAKAR(CHECK) - CHECK (1)
 
-# NAME
+## NAME
 
 **plakar check** - Check data integrity in a Plakar repository or snapshot
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar check**
 \[**-concurrency**&nbsp;*number*]
@@ -27,7 +27,7 @@ PLAKAR(CHECK) - CHECK (1)
 \[**-quiet**]
 \[*snapshotID*:*path&nbsp;...*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar check**
@@ -112,7 +112,7 @@ The options are as follows:
 
 > Suppress output to standard output, only logging errors and warnings.
 
-# EXAMPLES
+## EXAMPLES
 
 Perform a full integrity check on all snapshots:
 
@@ -122,7 +122,7 @@ Perform a fast check on specific paths of two snapshot:
 
 	$ plakar check -fast abc123:/etc/passwd def456:/var/www
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar check** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -135,7 +135,7 @@ The **plakar check** utility exits&#160;0 on success, and&#160;&gt;0 if an error
 > An error occurred, such as corruption detected in a snapshot or
 > failure to check data integrity.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

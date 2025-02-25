@@ -1,21 +1,21 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: exec
 summary: "Execute a file from a Plakar snapshot"
 ---
 PLAKAR-EXEC(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar exec** - Execute a file from a Plakar snapshot
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar exec**
 *snapshotID*:*filepath*
 \[*command\_args&nbsp;...*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar exec**
@@ -25,20 +25,20 @@ from a Plakar snapshot passing the given arguments
 *command\_args*
 to it.
 
-# EXAMPLES
+## EXAMPLES
 
 Execute a script from a snapshot with some arguments:
 
 	$ plakar exec abc123:/home/op/korpus/driver.sh -r 100
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 **plakar exec**
 preserves the exit code of the command but may also fail with exit
 code 1 without executing it, for e.g. if the file or the snapshot
 doesn't exist.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

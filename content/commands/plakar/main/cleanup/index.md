@@ -1,19 +1,19 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: cleanup
 summary: "Remove unused data from a Plakar repository"
 ---
 PLAKAR-CLEANUP(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar cleanup** - Remove unused data from a Plakar repository
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar cleanup**
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar cleanup**
@@ -23,7 +23,7 @@ It identifies unreferenced data and reorganizes packfiles to ensure
 only active snapshots and their dependencies are retained.
 The cleanup process updates snapshot indexes to reflect these changes.
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar cleanup** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -36,7 +36,7 @@ The **plakar cleanup** utility exits&#160;0 on success, and&#160;&gt;0 if an err
 > An error occurred during cleanup, such as failure to update indexes or
 > remove data.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

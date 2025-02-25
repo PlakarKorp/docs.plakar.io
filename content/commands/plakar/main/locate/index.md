@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: locate
 summary: "Find filenames in a Plakar snapshot"
 ---
 PLAKAR-LOCATE(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar locate** - Find filenames in a Plakar snapshot
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar locate**
 \[**-name**&nbsp;*name*]
@@ -24,7 +24,7 @@ PLAKAR-LOCATE(1) - General Commands Manual
 \[**-snapshot**&nbsp;*snapshotID*]
 *patterns&nbsp;...*
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar locate**
@@ -91,7 +91,7 @@ The options are as follows:
 
 > Limit the search to the given snapshot.
 
-# EXAMPLES
+## EXAMPLES
 
 Search for files ending in
 "wd":
@@ -100,7 +100,7 @@ Search for files ending in
 	abc123:/etc/master.passwd
 	abc123:/etc/passwd
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar locate** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -113,12 +113,12 @@ The **plakar locate** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 > An error occurred, such as invalid parameters, inability to create the
 > repository, or configuration issues.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-backup(1)
 
-# CAVEATS
+## CAVEATS
 
 The patterns may have to be quote to avoid the shell attempting to
 expand them.

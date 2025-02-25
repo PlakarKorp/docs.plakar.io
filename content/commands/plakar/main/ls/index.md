@@ -1,15 +1,15 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: ls
 summary: "List snapshots and their contents in a Plakar repository"
 ---
 PLAKAR-LS(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar ls** - List snapshots and their contents in a Plakar repository
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar ls**
 \[**-uuid**]
@@ -25,7 +25,7 @@ PLAKAR-LS(1) - General Commands Manual
 \[**-recursive**]
 \[*snapshotID*:*path*]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar ls**
@@ -95,7 +95,7 @@ The options are as follows:
 
 > List directory contents recursively when exploring snapshot contents.
 
-# EXAMPLES
+## EXAMPLES
 
 List all snapshots with their short IDs:
 
@@ -117,7 +117,7 @@ Recursively list contents of a specific snapshot:
 
 	$ plakar ls -recursive abc123:/etc
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar ls** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -130,7 +130,7 @@ The **plakar ls** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 > An error occurred, such as failure to retrieve snapshot information or
 > invalid snapshot ID.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1)
 

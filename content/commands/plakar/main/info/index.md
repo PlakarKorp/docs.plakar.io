@@ -1,20 +1,20 @@
 ---
-date: "2025-02-25T20:43:37Z"
+date: "2025-02-25T20:54:11Z"
 title: info
 summary: "Display detailed information about a Plakar repository, snapshot and filesystem entries"
 ---
 PLAKAR-INFO(1) - General Commands Manual
 
-# NAME
+## NAME
 
 **plakar info** - Display detailed information about a Plakar repository, snapshot and filesystem entries
 
-# SYNOPSIS
+## SYNOPSIS
 
 **plakar info**
 \[**\[\[SNAPSHOT]\[:/path/to/file-or-directory]]**]
 
-# DESCRIPTION
+## DESCRIPTION
 
 The
 **plakar info**
@@ -23,7 +23,7 @@ snapshots and filesystem entries.
 The type of information displayed depends on the specified argument.
 Without any arguents, display information about the repository.
 
-# EXAMPLES
+## EXAMPLES
 
 Show repository information:
 
@@ -37,7 +37,7 @@ Show detailed information for a file within a snapshot:
 
 	$ plakar info abcd123:/etc/passwd
 
-# DIAGNOSTICS
+## DIAGNOSTICS
 
 The **plakar info** utility exits&#160;0 on success, and&#160;&gt;0 if an error occurs.
 
@@ -50,7 +50,7 @@ The **plakar info** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 > An error occurred, such as an invalid snapshot or object ID, or a
 > failure to retrieve the requested data.
 
-# SEE ALSO
+## SEE ALSO
 
 plakar(1),
 plakar-snapshot(1)
