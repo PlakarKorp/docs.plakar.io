@@ -15,5 +15,7 @@ jobs:
           submodules: true
       - name: Publish Site
         uses: poolpOrg/hugo-gh-pages@master
+        env:
+          INPUT_HUGOVERSION: 0.144.2
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
