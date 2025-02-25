@@ -1,5 +1,5 @@
 ---
-date: 2025-02-25T20:38:36Z
+date: "2025-02-25T20:43:37Z"
 title: config
 summary: "Manages plakar configuration"
 ---

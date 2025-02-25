@@ -1,5 +1,5 @@
 ---
-date: 2025-02-25T20:38:35Z
+date: "2025-02-25T20:43:37Z"
 title: version
 summary: "Display the current version of Plakar"
 ---

@@ -32,11 +32,13 @@ fi
 cat <<EOF > ./content/commands/plakar/${VERSION}/_index.md
 +++
 title = "${TITLE}"
-date = 2022-03-13T23:27:47+01:00
+date = "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 weight = 3
 chapter = false
 sort = "title"
 +++
+
+{{%children description="false"%}}
 EOF
 
 DOCUMENTS=
@@ -55,7 +57,7 @@ for DOCUMENT in ${DOCUMENTS}; do
 
     cat <<EOF > ./content/commands/plakar/${VERSION}/${DOC_NAME}/index.md
 ---
-date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+date: "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 title: ${DOC_NAME}
 summary: "${SUMMARY}"
 ---
