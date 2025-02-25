@@ -1,7 +1,7 @@
 baseURL = "https://docs.plakar.io/"
 languageCode = "en-us"
 title = "docs.plakar.io"
-theme = "plakar-io"
+theme = "hugo-theme-relearn"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 
