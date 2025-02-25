@@ -14,7 +14,7 @@ This article will guide you through the creation of your first backup with plaka
 
 The first step is to install the software.
 
-At the time of this writing, we do not yet provide packages and `plakar` has to be installed manually:
+At the time of this writing, we do not yet provide packages and **plakar** has to be installed manually:
 
 ```tt
 $ go install https://github.com/PlakarKorp/plakar@latest
@@ -31,9 +31,9 @@ $
 ## Running the local agent
 
 To work efficiently,
-`plakar` requires each user to run a local agent that will provide caching among other things.
+**plakar** requires each user to run a local agent that will provide caching among other things.
 If the agent is not running,
-the `plakar` CLI will operate in degraded mode as a safety net,
+the **plakar** CLI will operate in degraded mode as a safety net,
 but will disallow concurrent commands and won't benefit from caching.
 
 ```tt
@@ -53,11 +53,11 @@ $
 ## Creating your first local repository
 
 
-The `plakar` software reads your data,
-splits it into smaller chunks that it deduplicates and stores in a `repository`,
+The **plakar** software reads your data,
+splits it into smaller chunks that it deduplicates and stores in a **repository**,
 a fancy word to designate storage space dedicated to hold these chunks.
 
-A `repository` can be a directory on your local filesystem,
+A **repository** can be a directory on your local filesystem,
 a mountpoint to your NAS,
 a remote directory over SFTP,
 a bucket on an S3 object store,
@@ -164,29 +164,85 @@ $
 
 ## Digression: one copy is not enough
 
-You've completed a backup,
-which is great.
-However, if you'll allow me, I'd like to digress for a moment:
-
+You've completed a backup, which is great. However, if you'll allow me, I'd like to digress for a moment:
 
 > Literature and empirical studies suggest that the annual probability of data loss at a single site—especially when considering factors like hardware failures, human error, and environmental risks—is typically in the low single-digit percentages. For example, a seminal study by Pinheiro, Weber, and Barroso (2007) titled "Failure Trends in a Large Disk Drive Population" found that hard drive failure rates generally fall in the range of 2% to 4% per year. In practice, when additional risks beyond basic hardware failure (such as accidental deletion or other operational issues) are factored in, many practitioners adopt a conservative estimate of around 5% per year for a single site.
 
-Assume that the probability of losing data stored in any one repository over the course of a year is 𝑝 = 0.05 (5%),
-and that failures at different sites occur independently.
+A local backup,
+as we just did,
+is helpful in case of accidental removal of the original data...
+but not so much if the storage is entirely lost.
+
+--- 
+
+Assuming that the annual probability of data loss at a single site is \( p = 0.05 \) (5%).
+
+### For a single set of data
+
+The annual probability of loss is simply:
+
+```math {align="center"}
+$$p = 0.05$$
+```
+
+which corresponds to a **1 in 20 chance** of losing the data.
+ 
+### For two copies at distinct sites
+
+With two copies at distinct sites,
+data is only lost if both sites lose their copies simultaneously.
+
+If we assume that each site's failure occurs uniformly at random over 365 days. The daily failure probability for a single site is:
+
+```math {align="center"}
+$$\frac{p}{365}$$
+```
+
+Thus, the probability that both copies fail on the same day is:
+
+```math {align="center"}
+$$\left(\frac{p}{365}\right)^2$$
+```
+Since there are 365 days in a year, the annual probability of a simultaneous failure is approximately:
+
+```math {align="center"}
+$$365 \times \left(\frac{p}{365}\right)^2 = \frac{p^2}{365}$$
+```
+
+For p=0.05, this becomes:
+
+$$\frac{0.0025}{365} \approx 6.85 \times 10^{-6}$$
+which corresponds to roughly a **1 in 145,000 chance** of both copies failing on the same day over the course of a year.
 
 
-- with one copy the chance of losing the data is simply 𝑝 → 5% (1 in 20).
-- with two copies,
-at different sites,
-data is lost only if both copies are lost so the probability is 𝑝 x 𝑝 = 𝑝<sup>2</sup> → 0.25% (1 in 400).
-- with three copies,
-at different sites,
-all three copies must be lost for the data to be gone, so the probability is
-𝑝 x 𝑝 x 𝑝= 𝑝<sup>3</sup> → 0.0125% (1 in 8000).
+### For three copies at distinct sites
 
-Because a chance of 1 in 20 is very likely,
-and a chance of 1 in 400 is still realistic,
-it is generally recommended to have the live data + 2 off-site copies at a bare minimum to fall in the unlikely 1 in 8000 chance range.
+Similarly, the probability that all three copies fail on the same day is:
+
+```math {align="center"}
+$$\left(\frac{p}{365}\right)^3$
+```
+
+Over the year, the probability becomes:
+
+```math {align="center"}
+$$365 \times \left(\frac{p}{365}\right)^3 = \frac{p^3}{365^2}$$
+```
+
+For \( p = 0.05 \), this calculates to:
+
+```math {align="center"}
+$$\frac{0.000125}{133225} \approx 9.38 \times 10^{-10}$$
+```
+
+or roughly a **1 in 1 billion chance**.
+
+---
+
+These calculations show that while data loss at a single site is a very likely scenario,
+the odds reduce drastically with a second copy at a distinct site and become irrelevant with a third copy at a third site.
+
+It is generally recommended to have the live data + 2 off-site copies to fall in the unlikely 1 in a billion chance range.
 
 
 ## Creating a second copy over SFTP
@@ -245,7 +301,7 @@ check: verification of 9abc3294:/private/etc completed successfully
 $
 ```
 
-The probability of losing data has now fallen from 5% to 0.25% (1 in 400) !
+The probability of losing data this year has now fallen from 5% to 0.00069% (1 in 145,000) !
 
 
 ## Creating a third copy over S3
@@ -292,7 +348,7 @@ check: verification of 9abc3294:/private/etc completed successfully
 $
 ```
 
-The probability of losing data has now fallen from 0.25% to 0.0125% (1 in 8000) !
+The probability of losing data has now fallen from 0.00069% to 0.0000001% (1 in a billion) !
 
 
 ## A few additional words on synchronization
