@@ -24,20 +24,20 @@ var relearn_searchindex = [
     "uri": "/en/concepts/index.html"
   },
   {
+    "breadcrumb": "docs.plakar.io \u003e  Commands \u003e  Plakar",
+    "content": "agent archive backup cat check cleanup clone config create diag diff digest exec find id info locate ls mount restore rm server stdio sync ui version",
+    "description": "agent archive backup cat check cleanup clone config create diag diff digest exec find id info locate ls mount restore rm server stdio sync ui version",
+    "tags": [],
+    "title": "developers branch",
+    "uri": "/en/commands/plakar/main/index.html"
+  },
+  {
     "breadcrumb": "docs.plakar.io",
     "content": "Documented commands Plakar",
     "description": "Documented commands Plakar",
     "tags": [],
     "title": "Commands",
     "uri": "/en/commands/index.html"
-  },
-  {
-    "breadcrumb": "docs.plakar.io \u003e  Commands \u003e  Plakar",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "developers branch",
-    "uri": "/en/commands/plakar/main/index.html"
   },
   {
     "breadcrumb": "docs.plakar.io",
