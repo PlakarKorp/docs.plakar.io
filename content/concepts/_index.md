@@ -102,6 +102,3 @@ chmod           dd              hostname        ln              ps              
 cp              df              kill            ls              pwd             stty            wait4path
 $
 ```
-
-
-### To be continued
