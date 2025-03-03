@@ -15,7 +15,7 @@ Plakar offers a simple way to synchronize repositories across multiple locations
 
 If you store your data on a single device, you are at risk of losing everything if that device fails. This can happen due to various reasons, such as:
 
-* **Hardware failure:** The device's components can fail due to wear and tear, overheating, or other issues.    
+* **Hardware failure:** The device's components can fail due to wear and tear, overheating, or other issues.
 * **Power surges:** Unexpected power surges can damage the device and corrupt the data.
 * **Natural disasters:** Fires, floods, earthquakes, or other natural disasters can destroy the device and the data stored on it.
 * **Theft:** The device can be stolen, and the data can be lost or compromised.
