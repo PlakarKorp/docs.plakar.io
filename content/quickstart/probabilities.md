@@ -13,7 +13,7 @@ Plakar offers a simple way to synchronize repositories across multiple locations
 
 ## Why do I need more than one copy?
 
-If you store your data on a single device, you are at risk of losing everything if that device fails. This can happen due to various reasons, such as:
+If you store your data at a single location, you are at risk of losing everything if that storage fails. This can happen due to various reasons, such as:
 
 * **Hardware failure:** The device's components can fail due to wear and tear, overheating, or other issues.
 * **Power surges:** Unexpected power surges can damage the device and corrupt the data.
@@ -24,17 +24,18 @@ Hardware failures are not the only risk to your data. Human errors can also lead
 
 * **Accidental deletion:** A system administrator can accidentally remove the data.
 * **Intentional deletion:** A malicious actor can delete the data to cause harm.
-* **Internal threads:** While rare, internal threats can also lead to data loss.
+* **Internal threats:** While rare, internal threats can also lead to data loss.
 
 A good backup strategy should account for these risks.
 
 ## How many copies should I have?
 
-Literature and empirical studies suggest that the annual probability of data loss at a single site—especially when considering factors like hardware failures, human error, and environmental risks—is typically in the low single-digit percentages.
-
-For example, a seminal study by Pinheiro, Weber, and Barroso (2007) titled ["Failure Trends in a Large Disk Drive Population"](https://static.googleusercontent.com/media/research.google.com/en//archive/disk_failures.pdf) found that hard drive failure rates generally fall in the range of 2% to 4% per year.
-
-In practice, when additional risks beyond basic hardware failure (such as accidental deletion or other operational issues) are factored in, many practitioners adopt a conservative estimate of around 5% per year for a single site.
+> Literature and empirical studies suggest that the annual probability of data loss at a single site—especially when considering factors like hardware failures, human error, and environmental risks—is typically in the low single-digit percentages.
+> 
+> For example, a seminal study by Pinheiro, Weber, and Barroso (2007) titled ["Failure Trends in a Large Disk Drive Population"](https://static.googleusercontent.com/media/research.google.com/en//archive/disk_failures.pdf) found that hard drive failure rates generally fall in the range of 2% to 4% per year.
+> 
+> In practice, when additional risks beyond basic hardware failure (such as accidental deletion or other operational issues) are factored in, many practitioners adopt a conservative estimate of around 5% per year for a single site.
+>
 
 Assuming that the annual probability of data loss at a single site is \( p = 0.05 \) (5%).
 

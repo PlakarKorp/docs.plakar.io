@@ -1,5 +1,5 @@
 +++
-title = "Quick start"
+title = "Quickstart"
 date = "2025-03-03 17:00:00 +0100"
 weight = 1
 chapter = false
@@ -17,6 +17,7 @@ To install the Go toolchain, please refer to the [official documentation](https:
 
 * **MacOS**: `brew install go`
 * **Debian/Ubuntu**: `sudo apt get update && apt-get install -y ca-certificates golang`
+* **OpenBSD**: `doas pkg_add go`
 
 By default, *plakar* is installed in *~/go/bin*. Run `export PATH=$PATH:~/go/bin` to add it to your PATH.
 
@@ -32,7 +33,7 @@ To verify the installation was successful, run:
 
 ```bash
 $ plakar version
-v1.0.0-beta.1
+v1.0.0-beta.2
 $
 ```
 
@@ -57,7 +58,7 @@ $ plakar agent -stop
 $
 ```
 
-*If you follow the quickstart but the agent is not running, a warning message will be displayed for each command. You can safely ignore this message: the agent is not mandatory but recommended for optimal performance.*
+*If you follow the quickstart but the agent is not running, a warning message will be displayed for each command. You can safely ignore this message: the agent is not mandatory but recommended for optimal performance. This warning can be removed by setting the PLAKAR_AGENTLESS environment variable as such `export PLAKAR_AGENTLESS=`*
 
 ## Creating your first local repository
 
