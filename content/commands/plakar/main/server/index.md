@@ -1,13 +1,13 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: server
-summary: "Start a Plakar server instance"
+summary: "Start a Plakar server"
 ---
 PLAKAR-SERVER(1) - General Commands Manual
 
 ## NAME
 
-**plakar server** - Start a Plakar server instance
+**plakar server** - Start a Plakar server
 
 ## SYNOPSIS
 
@@ -54,4 +54,4 @@ The **plakar server** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 plakar(1)
 
-Plakar - February 3, 2025
+Plakar - March 3, 2025

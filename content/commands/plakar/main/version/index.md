@@ -1,13 +1,13 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: version
-summary: "Display the current version of Plakar"
+summary: "Display the current Plakar version"
 ---
 PLAKAR-VERSION(1) - General Commands Manual
 
 ## NAME
 
-**plakar version** - Display the current version of Plakar
+**plakar version** - Display the current Plakar version
 
 ## SYNOPSIS
 
@@ -27,4 +27,4 @@ The **plakar version** utility exits&#160;0 on success, and&#160;&gt;0 if an err
 
 plakar(1)
 
-Plakar - January 29, 2025
+Plakar - March 3, 2025

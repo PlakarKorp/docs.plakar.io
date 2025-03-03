@@ -1,5 +1,5 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: locate
 summary: "Find filenames in a Plakar snapshot"
 ---
@@ -120,7 +120,7 @@ plakar-backup(1)
 
 ## CAVEATS
 
-The patterns may have to be quote to avoid the shell attempting to
+The patterns may have to be quoted to avoid the shell attempting to
 expand them.
 
 Plakar - February 1, 2025

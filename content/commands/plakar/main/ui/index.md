@@ -1,13 +1,13 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: ui
-summary: "Serve the Plakar user interface over HTTP"
+summary: "Serve the Plakar web user interface"
 ---
 PLAKAR-UI(1) - General Commands Manual
 
 ## NAME
 
-**plakar ui** - Serve the Plakar user interface over HTTP
+**plakar ui** - Serve the Plakar web user interface
 
 ## SYNOPSIS
 
@@ -22,8 +22,7 @@ PLAKAR-UI(1) - General Commands Manual
 The
 **plakar ui**
 command serves the Plakar webapp user interface.
-By default, this command spawns the a web browser to browse the
-interface.
+By default, this command opens the default web browser to use the interface.
 
 The options are as follows:
 
@@ -48,9 +47,7 @@ The options are as follows:
 
 **-no-spawn**
 
-> Do not automatically spawn a web browser.
-> The UI will launch, but the user must manually open it by navigating
-> to the specified address.
+> Do not automatically open the web browser.
 
 ## EXAMPLES
 
@@ -75,4 +72,4 @@ The **plakar ui** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 
 plakar(1)
 
-Plakar - February 3, 2024
+Plakar - March 3, 2024

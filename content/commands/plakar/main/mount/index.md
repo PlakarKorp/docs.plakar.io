@@ -1,13 +1,13 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: mount
-summary: "Mount a Plakar snapshot as a read"
+summary: "Mount Plakar snapshots as read"
 ---
 PLAKAR-MOUNT(1) - General Commands Manual
 
 ## NAME
 
-**plakar mount** - Mount a Plakar snapshot as a read-only filesystem
+**plakar mount** - Mount Plakar snapshots as read-only filesystem
 
 ## SYNOPSIS
 
@@ -24,7 +24,7 @@ at the specified
 This allows users to access snapshot contents as if they were part of
 the local file system, providing easy browsing and retrieval of files
 without needing to explicitly restore them.
-This command requires a Linux or Darwin (macOS) environment.
+This command may not work on all Operating Systems.
 
 ## EXAMPLES
 
@@ -49,4 +49,4 @@ The **plakar mount** utility exits&#160;0 on success, and&#160;&gt;0 if an error
 
 plakar(1)
 
-Plakar - February 3, 2025
+Plakar - March 3, 2025

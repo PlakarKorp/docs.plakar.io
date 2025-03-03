@@ -1,13 +1,13 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: cat
-summary: "Display the contents of a file from a Plakar snapshot"
+summary: "Display file contents from a Plakar snapshot"
 ---
 PLAKAR-CAT(1) - General Commands Manual
 
 ## NAME
 
-**plakar cat** - Display the contents of a file from a Plakar snapshot
+**plakar cat** - Display file contents from a Plakar snapshot
 
 ## SYNOPSIS
 
@@ -66,4 +66,4 @@ The **plakar cat** utility exits&#160;0 on success, and&#160;&gt;0 if an error o
 plakar(1),
 plakar-backup(1)
 
-Plakar - February 3, 2025
+Plakar - March 3, 2025

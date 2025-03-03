@@ -1,5 +1,5 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: exec
 summary: "Execute a file from a Plakar snapshot"
 ---

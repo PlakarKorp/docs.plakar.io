@@ -1,5 +1,5 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: create
 summary: "Create a new Plakar repository"
 ---
@@ -12,6 +12,7 @@ PLAKAR-CREATE(1) - General Commands Manual
 ## SYNOPSIS
 
 **plakar create**
+\[**-hashing**&nbsp;*algorithm*]
 \[**-no-encryption**]
 \[**-no-compression**]
 

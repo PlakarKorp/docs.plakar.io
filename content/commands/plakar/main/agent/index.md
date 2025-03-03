@@ -1,5 +1,5 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: agent
 summary: "Run the Plakar agent"
 ---
@@ -12,7 +12,9 @@ PLAKAR-AGENT(1) - General Commands Manual
 ## SYNOPSIS
 
 **plakar agent**
-\[**-prometheus**&nbsp;*address*]
+\[**-foreground**]
+\[**-log**&nbsp;*filename*]
+\[**-stop**]
 
 ## DESCRIPTION
 
@@ -26,13 +28,19 @@ continues running indefinitely.
 
 The options are as follows:
 
-**-prometheus** *address*
+**-foreground**
 
-> Expose a prometheus server at
-> *address*.
-> Metrics are available at the
-> */metrics*
-> endpoint.
+> Do not daemonize agent,
+> run in foreground.
+
+**-log** *filename*
+
+> Redirect all output to
+> *filename*.
+
+**-stop**
+
+> Terminate an agent running in the background.
 
 ## DIAGNOSTICS
 

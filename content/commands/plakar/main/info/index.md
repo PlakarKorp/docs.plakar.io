@@ -1,18 +1,18 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: info
-summary: "Display detailed information about a Plakar repository, snapshot and filesystem entries"
+summary: "Display detailed information about internal structures"
 ---
 PLAKAR-INFO(1) - General Commands Manual
 
 ## NAME
 
-**plakar info** - Display detailed information about a Plakar repository, snapshot and filesystem entries
+**plakar info** - Display detailed information about internal structures
 
 ## SYNOPSIS
 
 **plakar info**
-\[**\[\[SNAPSHOT]\[:/path/to/file-or-directory]]**]
+\[*snapshot*\[:*/path/to/file*]]
 
 ## DESCRIPTION
 
@@ -21,7 +21,7 @@ The
 command provides detailed information about a Plakar repository,
 snapshots and filesystem entries.
 The type of information displayed depends on the specified argument.
-Without any arguents, display information about the repository.
+Without any arguments, display information about the repository.
 
 ## EXAMPLES
 
@@ -55,4 +55,4 @@ The **plakar info** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 plakar(1),
 plakar-snapshot(1)
 
-Plakar - February 3, 2025
+Plakar - March 3, 2025

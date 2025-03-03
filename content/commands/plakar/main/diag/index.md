@@ -1,5 +1,5 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: diag
 summary: "Display detailed information about Plakar internal structures"
 ---
@@ -12,7 +12,7 @@ PLAKAR-DIAG(1) - General Commands Manual
 ## SYNOPSIS
 
 **plakar diag**
-\[**errors**&nbsp;|&nbsp;**object**&nbsp;|&nbsp;**packfile**&nbsp;|&nbsp;**snapshot**&nbsp;|&nbsp;**state**&nbsp;|&nbsp;**vfs**]
+\[**errors**&nbsp;|&nbsp;**locks**&nbsp;|&nbsp;**object**&nbsp;|&nbsp;**packfile**&nbsp;|&nbsp;**snapshot**&nbsp;|&nbsp;**state**&nbsp;|&nbsp;**vfs**]
 
 ## DESCRIPTION
 
@@ -20,13 +20,17 @@ The
 **plakar diag**
 command provides detailed information about various internal data structures.
 The type of information displayed depends on the specified argument.
-Without any arguents, display information about the repository.
+Without any arguments, display information about the repository.
 
 The sub-commands are as follows:
 
 **errors** *snapshotID*
 
 > Display the list of errors in the given snapshot.
+
+**locks**
+
+> Display the list of locks currently held on the repository.
 
 **object** *objectID*
 

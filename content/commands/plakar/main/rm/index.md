@@ -1,13 +1,13 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: rm
-summary: "Remove snapshots from the Plakar repository"
+summary: "Remove snapshots from a Plakar repository"
 ---
 PLAKAR-RM(1) - General Commands Manual
 
 ## NAME
 
-**plakar rm** - Remove snapshots from the Plakar repository
+**plakar rm** - Remove snapshots from a Plakar repository
 
 ## SYNOPSIS
 
@@ -40,43 +40,43 @@ must be specified to filter the snapshots to delete.
 
 The arguments are as follows:
 
-**-name** *string*
+**-name** *name*
 
-> Only apply command to snapshots that match
+> Filter snapshots that match
 > *name*.
 
-**-category** *string*
+**-category** *category*
 
-> Only apply command to snapshots that match
+> Filter snapshots that match
 > *category*.
 
-**-environment** *string*
+**-environment** *environment*
 
-> Only apply command to snapshots that match
+> Filter snapshots that match
 > *environment*.
 
-**-perimeter** *string*
+**-perimeter** *perimeter*
 
-> Only apply command to snapshots that match
+> Filter snapshots that match
 > *perimeter*.
 
-**-job** *string*
+**-job** *job*
 
-> Only apply command to snapshots that match
+> Filter snapshots that match
 > *job*.
 
-**-tag** *string*
+**-tag** *tag*
 
-> Only apply command to snapshots that match
+> Filter snapshots that match
 > *tag*.
 
 **-latest**
 
-> Only apply command to latest snapshot matching filters.
+> Filter latest snapshot matching filters.
 
 **-before** *date*
 
-> Only apply command to snapshots matching filters and older than the specified date.
+> Filter snapshots matching filters and older than the specified date.
 > Accepted formats include relative durations
 > (e.g. 2d for two days, 1w for one week)
 > or specific dates in various formats
@@ -84,7 +84,7 @@ The arguments are as follows:
 
 **-since** *date*
 
-> Only apply command to snapshots matching filters and created since the specified date, included.
+> Filter snapshots matching filters and created since the specified date, included.
 > Accepted formats include relative durations
 > (e.g. 2d for two days, 1w for one week)
 > or specific dates in various formats
@@ -98,7 +98,7 @@ Remove a specific snapshot by ID:
 
 Remove snapshots older than 30 days:
 
-	$ plakar rm -older 30d
+	$ plakar rm -before 30d
 
 Remove snapshots with a specific tag:
 
@@ -106,7 +106,7 @@ Remove snapshots with a specific tag:
 
 Remove snapshots older than 1 year with a specific tag:
 
-	$ plakar rm -older 1y -tag daily-backup
+	$ plakar rm -before 1y -tag daily-backup
 
 ## DIAGNOSTICS
 
@@ -126,4 +126,4 @@ The **plakar rm** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 plakar(1),
 plakar-backup(1)
 
-Plakar - February 3, 2025
+Plakar - March 3, 2025

@@ -1,13 +1,13 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: diff
-summary: "Show differences between files in Plakar snapshots"
+summary: "Show differences between files in a Plakar snapshots"
 ---
 PLAKAR-DIFF(1) - General Commands Manual
 
 ## NAME
 
-**plakar diff** - Show differences between files in Plakar snapshots
+**plakar diff** - Show differences between files in a Plakar snapshots
 
 ## SYNOPSIS
 
@@ -65,4 +65,4 @@ The **plakar diff** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 plakar(1),
 plakar-backup(1)
 
-Plakar - February 3, 2025
+Plakar - March 3, 2025

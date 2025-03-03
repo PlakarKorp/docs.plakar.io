@@ -1,5 +1,5 @@
 ---
-date: "2025-02-25T20:54:11Z"
+date: "2025-03-03T17:17:17Z"
 title: sync
 summary: "Synchronize snapshots between Plakar repositories"
 ---
@@ -20,7 +20,7 @@ PLAKAR-SYNC(1) - General Commands Manual
 
 The
 **plakar sync**
-command syncronize snapshots between two Plakar repositories.
+command synchronize snapshots between two Plakar repositories.
 If a specific snapshot ID is provided, only snapshots with matching
 IDs will be synchronized.
 
