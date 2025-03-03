@@ -1,31 +1,38 @@
 +++
 title = "Quick start"
-date = "2025-02-19 21:00:00 +0100"
+date = "2025-03-13 21:00:00 +0100"
 weight = 1
 chapter = false
 pre = "<b>1. </b>"
 +++
 
-
 This article will guide you through the creation of your first backup with plakar.
-```math
-```
 
 ## Installing plakar
 
-The first step is to install the software.
+{{% notice style="info" title="Requisites" icon="circle-info" %}}
+At the time of this writing, we do not yet provide packages and **plakar** has to be compiled from source, which requires the Go toolchain to be installed on your system.
 
-At the time of this writing, we do not yet provide packages and **plakar** has to be installed manually:
+To install the Go toolchain, please refer to the [official documentation](https://golang.org/doc/install) or run the following commands:
 
-```tt
-$ go install https://github.com/PlakarKorp/plakar/cmd/plakar@latest
+* **MacOS**: `brew install go`
+* **Debian/Ubuntu**: `sudo apt get update && apt-get install -y ca-certificates golang`
+
+By default, *plakar* is installed in *~/go/bin*. Run `export PATH=$PATH:~/go/bin` to add it to your PATH.
+
+{{% /notice %}}
+
+Install **plakar**:
+
+```bash
+$ go install github.com/PlakarKorp/plakar/cmd/plakar@latest
 ```
 
-This will ensure that dependencies are installed and you should be able to verify the command is properly installed:
+To verify the installation was successful, run:
 
-```tt
+```bash
 $ plakar version
-v0.4.27-alpha
+v1.0.0-beta.1
 $
 ```
 
@@ -37,19 +44,20 @@ If the agent is not running,
 the **plakar** CLI will operate in degraded mode as a safety net,
 but will disallow concurrent commands and won't benefit from caching.
 
-```tt
+Start the agent:
+```bash
 $ plakar agent
 agent started with pid=12539
 $
 ```
 
 The agent can be stopped with the following command:
-```tt
+```bash
 $ plakar agent -stop
 $
 ```
 
-
+*If you follow the quickstart but the agent is not running, a warning message will be displayed for each command. You can safely ignore this message: the agent is not mandatory but recommended for optimal performance.*
 
 ## Creating your first local repository
 
@@ -66,26 +74,28 @@ or any storage we provide (or you write) a connector for.
 
 Our first repository will be a directory at `/var/backups`:
 
-```tt
+```bash
 $ plakar at /var/backups create
 repository passphrase: 
 repository passphrase (confirm):
 $
 ```
 
-> Be extra careful when chosing the passphrase: 
-> it is the secret protecting your data.
-> People with both access to the repository and knowledge of the passphrase can read your backups.
->
-> **DO NOT LOSE OR FORGET THE PASSPHRASE:**
-> it is not stored anywhere and can't be recovered in case of loss.
-> A lost passphrase means the data within the repository can no longer be recovered.
+{{% notice style="warning" title="Your passphrase is important" icon="triangle-exclamation" %}}
+Be extra careful when chosing the passphrase:
+it is the secret protecting your data.
+People with both access to the repository and knowledge of the passphrase can read your backups.
+
+**DO NOT LOSE OR FORGET THE PASSPHRASE:**
+it is not stored anywhere and can't be recovered in case of loss.
+A lost passphrase means the data within the repository can no longer be recovered.
+{{% /notice %}}
 
 It is also possible to create unencrypted repositories,
 should your backups remain local,
 in which case the `-no-encryption` option has to be passed at creation:
 
-```tt
+```bash
 $ plakar at /var/backups create -no-encryption
 $
 ```
@@ -100,7 +110,7 @@ such changes require creating a new repository and performing a synchronization 
 
 Once the repository is created,
 we can do the first backup to it:
-```tt
+```bash
 $ plakar at /var/backups backup /private/etc
 9abc3294: OK ✓ /private/etc/ftpusers
 9abc3294: OK ✓ /private/etc/asl/com.apple.iokit.power
@@ -116,14 +126,14 @@ $
 
 You can verify that it is properly recorded:
 
-```tt
+```bash
 $ plakar at /var/backups ls
 2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
 $
 ```
 
 Verify the integrity of its content:
-```tt
+```bash
 $ plakar at /var/backups check 9abc3294
 9abc3294: ✓ /private/etc/afpovertcp.cfg
 9abc3294: ✓ /private/etc/apache2/extra/httpd-autoindex.conf
@@ -138,7 +148,7 @@ $
 ```
 
 And restore it to a local directory:
-```tt
+```bash
 $ plakar at /var/backups restore -to /tmp/restore 9abc3294
 9abc3294: OK ✓ /private/etc/afpovertcp.cfg
 9abc3294: OK ✓ /private/etc/apache2/extra/httpd-autoindex.conf
@@ -167,104 +177,46 @@ $
 
 You've completed a backup, which is great. However, if you'll allow me, I'd like to digress for a moment:
 
-> Literature and empirical studies suggest that the annual probability of data loss at a single site—especially when considering factors like hardware failures, human error, and environmental risks—is typically in the low single-digit percentages. For example, a seminal study by Pinheiro, Weber, and Barroso (2007) titled "Failure Trends in a Large Disk Drive Population" found that hard drive failure rates generally fall in the range of 2% to 4% per year. In practice, when additional risks beyond basic hardware failure (such as accidental deletion or other operational issues) are factored in, many practitioners adopt a conservative estimate of around 5% per year for a single site.
+> Literature and empirical studies suggest that the annual probability of data loss at a single site—especially when considering factors like hardware failures, human error, and environmental risks—is typically in the low single-digit percentages. For example, a seminal study by Pinheiro, Weber, and Barroso (2007) titled ["Failure Trends in a Large Disk Drive Population"](https://static.googleusercontent.com/media/research.google.com/en//archive/disk_failures.pdf) found that hard drive failure rates generally fall in the range of 2% to 4% per year. In practice, when additional risks beyond basic hardware failure (such as accidental deletion or other operational issues) are factored in, many practitioners adopt a conservative estimate of around 5% per year for a single site.
 
-A local backup,
-as we just did,
-is helpful in case of accidental removal of the original data...
-but not so much if the storage is entirely lost.
+A local backup, as we just did, is helpful in case of accidental removal of the original data...  but not so much if the storage is entirely lost.
 
---- 
+As explained in the page [One repository is not enough](probabilities/), the probability of losing data is as follows:
 
-Assuming that the annual probability of data loss at a single site is \( p = 0.05 \) (5%).
+* For a single set of data: 5% per year (1 in 20 chance)
+* For two copies at distinct sites: 0.00069% per year (1 in 145,000 chance)
+* For three copies at distinct sites: 0.0000001% per year (1 in a billion chance)
 
-### For a single set of data
-
-The annual probability of loss is simply:
-
-$$p = 0.05$$
-
-which corresponds to a **1 in 20 chance** of losing the data.
- 
-### For two copies at distinct sites
-
-With two copies at distinct sites,
-data is only lost if both sites lose their copies simultaneously.
-
-If we assume that each site's failure occurs uniformly at random over 365 days. The daily failure probability for a single site is:
-
-$$\frac{p}{365}$$
-
-Thus, the probability that both copies fail on the same day is:
-
-$$\left(\frac{p}{365}\right)^2$$
-
-Since there are 365 days in a year, the annual probability of a simultaneous failure is approximately:
-
-$$365 \times \left(\frac{p}{365}\right)^2 = \frac{p^2}{365}$$
-
-For p=0.05, this becomes:
-
-$$\frac{0.0025}{365} \approx 6.85 \times 10^{-6}$$
-
-which corresponds to roughly a **1 in 145,000 chance** of both copies failing on the same day over the course of a year.
-
-
-### For three copies at distinct sites
-
-Similarly, the probability that all three copies fail on the same day is:
-
-$$\left(\frac{p}{365}\right)^3$$
-
-Over the year, the probability becomes:
-
-$$365 \times \left(\frac{p}{365}\right)^3 = \frac{p^3}{365^2}$$
-
-For \( p = 0.05 \), this calculates to:
-
-$$\frac{0.000125}{133225} \approx 9.38 \times 10^{-10}$$
-
-or roughly a **1 in 1 billion chance**.
-
----
-
-These calculations show that while data loss at a single site is a very likely scenario,
-the odds reduce drastically with a second copy at a distinct site and become irrelevant with a third copy at a third site.
-
-It is generally recommended to have the live data + 2 off-site copies to fall in the unlikely 1 in a billion chance range.
-
+To reduce the risk of data loss, it is highly recommended to create multiple copies of your backups across different locations.
 
 ## Creating a second copy over SFTP
 
-We now have a local repository with a copy of our backups,
-but it is done on the same machine,
-we're currently at 5% chances of losing data this year if the drive dies !
+We now have a local repository with a copy of our backups, but it is done on the same machine: **we're currently at 5% chances of losing data this year if the drive dies**.
 
-Let's create another repository on my remote NAS over SFTP !
+Plakar has been designed to make it easy to synchronize repositories across multiple locations. Let's create another repository on my remote NAS over SFTP and synchronize it with the local one: it should not take more than a couple of minutes.
 
-> SFTP is the Secure File Transfer Protocol that comes with OpenSSH.
+{{% notice title="What is SFTP?" style="grey" icon="circle-question" %}}
+SFTP is the Secure File Transfer Protocol that comes with OpenSSH.
+{{% /notice %}}
 
 
 This can be done by creating a new repository there,
 with its own passphrase:
 
-```tt
+```bash
 $ plakar at sftp://gilles@nas.plakar.io/var/backups create
 repository passphrase: 
 repository passphrase (confirm):
 $
 ```
 
-We could simply do a new backup to it,
-but this might produce different snapshots as data may have changed since the first backup.
+We could simply do a new backup to it, but this might produce different snapshots as data may have changed since the first backup.
 
-Instead,
-we can perform a repository synchronization.
-A repository synchronization ensures that backups are transfered from a repository to another,
-using the recorded data,
-and performing necessary decryption and encryption to produce a similar copy:
+Instead, we can perform a repository synchronization.
 
-```tt
+A repository synchronization ensures that backups are transfered from a repository to another, using the recorded data,and performing necessary decryption and encryption to produce a similar copy:
+
+```bash
 $ plakar at /var/backups sync to sftp://gilles@nas.plakar.io/var/backups
 peer repository passphrase: 
 peer repository passphrase (confirm):
@@ -276,7 +228,7 @@ $
 
 We can verify integrity of the snapshot on the second repository:
 
-```tt
+```bash
 $ plakar at sftp://gilles@nas.plakar.io/var/backups check 9abc3294
 9abc3294: ✓ /private/etc/afpovertcp.cfg
 9abc3294: ✓ /private/etc/apache2/extra/httpd-autoindex.conf
@@ -290,32 +242,32 @@ check: verification of 9abc3294:/private/etc completed successfully
 $
 ```
 
-The probability of losing data this year has now fallen from 5% to 0.00069% (1 in 145,000) !
+**The probability of losing data this year has now fallen from 5% to 0.00069% (1 in 145,000)!**
 
 
 ## Creating a third copy over S3
 
-But what if both my drive died AND the data center hosting my NAS burst in flames ?
+But what if both my drive died AND the data center hosting my NAS burst in flames?
 
-Let’s create yet another repository on a remote S3 bucket !
+Let’s create yet another repository on a remote S3 bucket!
 
-```tt
-$ export S3_REPOSITORY_USER=gilles
-$ export S3_REPOSITORY_PASSWORD=********
-$ plakar at s3://minio.plakar.io:9001/mybackups create
-repository passphrase: 
-repository passphrase (confirm):
+```bash
+$ plakar config repository create s3
+# for AWS, set s3://s3.<region>.amazonaws.com/<bucket>
+$ plakar config repository set s3 location s3://minio.plakar.io:9001/mybackups
+$ plakar config repository set s3 passphrase ****************
+$ plakar config repository set s3 access_key gilles
+$ plakar config repository set s3 secret_access_key ********
+$ plakar at @s3 create
 $
 ```
 
-Let's do another synchronization !
+Let's do another synchronization!
 
-```tt
-$ plakar at /var/backups sync to s3://minio.plakar.io:9001/mybackups
-peer repository passphrase: 
-peer repository passphrase (confirm):
+```bash
+$ plakar at /var/backups sync to @s3
 sync: synchronized 1 snapshot
-$ plakar at s3://minio.plakar.io:9001/mybackups ls
+$ plakar at @s3 ls
 2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
 $
 ```
@@ -323,8 +275,8 @@ $
 
 We can verify integrity of the snapshot on the third repository:
 
-```tt
-$ plakar at s3://minio.plakar.io:9001/mybackups check 9abc3294
+```bash
+$ plakar at @s3 check 9abc3294
 9abc3294: ✓ /private/etc/afpovertcp.cfg
 9abc3294: ✓ /private/etc/apache2/extra/httpd-autoindex.conf
 9abc3294: ✓ /private/etc/apache2/extra/httpd-dav.conf
@@ -337,7 +289,7 @@ check: verification of 9abc3294:/private/etc completed successfully
 $
 ```
 
-The probability of losing data has now fallen from 0.00069% to 0.0000001% (1 in a billion) !
+**The probability of losing data has now fallen from 0.00069% to 0.0000001% (1 in a billion)!**
 
 
 ## A few additional words on synchronization
@@ -348,34 +300,20 @@ and you are encouraged to experiment with it to find the best worflow for your u
 This first command locates snapshots that exist in my local repository but not in the remote one,
 then sends them over:
 
-```tt
-$ plakar at /var/backups sync to s3://minio.plakar.io:9001/mybackups
+```bash
+$ plakar at /var/backups sync to @s3
 ```
 
 This second command locates snapshots that exist in the remote repository but not in the local one to bring them over:
 
-```tt
-$ plakar at /var/backups sync from s3://minio.plakar.io:9001/mybackups
+```bash
+$ plakar at /var/backups sync from @s3
 ```
 
-And this last command does it both ways,
-pushing to the remote repositories snapshots that exist locally and are missing,
-but also fetching locally snapshots that only exist remotely:
+And this last command does it both ways, pushing to the remote repositories snapshots that exist locally and are missing, but also fetching locally snapshots that only exist remotely:
 
-```tt
-$ plakar at /var/backups sync with s3://minio.plakar.io:9001/mybackups
+```bash
+$ plakar at /var/backups sync with @s3
 ```
 
-In addition,
-all these commands support passing snapshot identifiers and various options to perform partial synchronizations,
-only exchanging snapshots that match certain criterias.
-More information can be found in the [documentation](/commands/sync/).
-
-
-## Automating backup and synchronization
-
-TBD
-
-## Setting up monitoring and alerting
-
-TBD
+In addition, all these commands support passing snapshot identifiers and various options to perform partial synchronizations, only exchanging snapshots that match certain criterias. More information can be found in the [documentation](/commands/sync/).
