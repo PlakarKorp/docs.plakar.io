@@ -34,7 +34,6 @@ To verify the installation was successful, run:
 ```bash
 $ plakar version
 v1.0.0-beta.2
-$
 ```
 
 ## Running the local agent
@@ -49,13 +48,11 @@ Start the agent:
 ```bash
 $ plakar agent
 agent started with pid=12539
-$
 ```
 
 The agent can be stopped with the following command:
 ```bash
 $ plakar agent -stop
-$
 ```
 
 *If you follow the quickstart but the agent is not running, a warning message will be displayed for each command. You can safely ignore this message: the agent is not mandatory but recommended for optimal performance. This warning can be removed by setting the PLAKAR_AGENTLESS environment variable as such `export PLAKAR_AGENTLESS=`*
@@ -79,7 +76,6 @@ Our first repository will be a directory at `/var/backups`:
 $ plakar at /var/backups create
 repository passphrase: 
 repository passphrase (confirm):
-$
 ```
 
 {{% notice style="warning" title="Your passphrase is important" icon="triangle-exclamation" %}}
@@ -98,7 +94,6 @@ in which case the `-no-encryption` option has to be passed at creation:
 
 ```bash
 $ plakar at /var/backups create -no-encryption
-$
 ```
 
 Note that once a repository is created,
@@ -122,7 +117,6 @@ $ plakar at /var/backups backup /private/etc
 9abc3294: OK ✓ /private
 9abc3294: OK ✓ /
 backup: created unsigned snapshot 9abc3294 of size 3.1 MB in 72.55875ms
-$
 ```
 
 You can verify that it is properly recorded:
@@ -130,7 +124,6 @@ You can verify that it is properly recorded:
 ```bash
 $ plakar at /var/backups ls
 2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
-$
 ```
 
 Verify the integrity of its content:
@@ -145,7 +138,6 @@ $ plakar at /var/backups check 9abc3294
 9abc3294: ✓ /private/etc/zshrc_Apple_Terminal
 9abc3294: ✓ /private/etc
 check: verification of 9abc3294:/private/etc completed successfully
-$
 ```
 
 And restore it to a local directory:
@@ -170,7 +162,6 @@ drwxr-xr-x@ 16 gilles  wheel     512 Feb 19 22:47 asl
 -r--r--r--@  1 gilles  wheel     255 Feb 19 22:47 zprofile
 -r--r--r--@  1 gilles  wheel    3094 Feb 19 22:47 zshrc
 -rw-r--r--@  1 gilles  wheel    9335 Feb 19 22:47 zshrc_Apple_Terminal
-$
 ```
 
 
@@ -208,7 +199,6 @@ with its own passphrase:
 $ plakar at sftp://gilles@nas.plakar.io/var/backups create
 repository passphrase: 
 repository passphrase (confirm):
-$
 ```
 
 We could simply do a new backup to it, but this might produce different snapshots as data may have changed since the first backup.
@@ -222,9 +212,9 @@ $ plakar at /var/backups sync to sftp://gilles@nas.plakar.io/var/backups
 peer repository passphrase: 
 peer repository passphrase (confirm):
 sync: synchronized 1 snapshot
+info: sync: synchronization from /var/backups to sftp://gilles@nas.plakar.io/var/backups completed: 1 snapshots synchronized
 $ plakar at sftp://gilles@nas.plakar.io/var/backups ls
 2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
-$
 ```
 
 We can verify integrity of the snapshot on the second repository:
@@ -239,8 +229,7 @@ $ plakar at sftp://gilles@nas.plakar.io/var/backups check 9abc3294
 9abc3294: ✓ /private/etc/zshrc
 9abc3294: ✓ /private/etc/zshrc_Apple_Terminal
 9abc3294: ✓ /private/etc
-check: verification of 9abc3294:/private/etc completed successfully
-$
+check: verification of 9abc3294:/ completed successfully
 ```
 
 **The probability of losing data this year has now fallen from 5% to 0.00069% (1 in 145,000)!**
@@ -260,17 +249,15 @@ $ plakar config repository set s3 passphrase ****************
 $ plakar config repository set s3 access_key gilles
 $ plakar config repository set s3 secret_access_key ********
 $ plakar at @s3 create
-$
 ```
 
 Let's do another synchronization!
 
 ```bash
 $ plakar at /var/backups sync to @s3
-sync: synchronized 1 snapshot
+sync: synchronization from /var/backups to s3://minio.plakar.io:9001/mybackups completed: 1 snapshots synchronized
 $ plakar at @s3 ls
 2025-02-19T21:38:16Z   9abc3294    3.1 MB      0s   /private/etc
-$
 ```
 
 
@@ -287,7 +274,6 @@ $ plakar at @s3 check 9abc3294
 9abc3294: ✓ /private/etc/zshrc_Apple_Terminal
 9abc3294: ✓ /private/etc
 check: verification of 9abc3294:/private/etc completed successfully
-$
 ```
 
 **The probability of losing data has now fallen from 0.00069% to 0.0000001% (1 in a billion)!**
