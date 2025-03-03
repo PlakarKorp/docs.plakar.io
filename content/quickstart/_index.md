@@ -103,9 +103,8 @@ such changes require creating a new repository and performing a synchronization 
 
 ## Creating your first local backup
 
+Once the repository is created, we can do the first backup to it:
 
-Once the repository is created,
-we can do the first backup to it:
 ```bash
 $ plakar at /var/backups backup /private/etc
 9abc3294: OK ✓ /private/etc/ftpusers
@@ -127,6 +126,7 @@ $ plakar at /var/backups ls
 ```
 
 Verify the integrity of its content:
+
 ```bash
 $ plakar at /var/backups check 9abc3294
 9abc3294: ✓ /private/etc/afpovertcp.cfg
@@ -141,6 +141,7 @@ check: verification of 9abc3294:/private/etc completed successfully
 ```
 
 And restore it to a local directory:
+
 ```bash
 $ plakar at /var/backups restore -to /tmp/restore 9abc3294
 9abc3294: OK ✓ /private/etc/afpovertcp.cfg
@@ -163,6 +164,19 @@ drwxr-xr-x@ 16 gilles  wheel     512 Feb 19 22:47 asl
 -r--r--r--@  1 gilles  wheel    3094 Feb 19 22:47 zshrc
 -rw-r--r--@  1 gilles  wheel    9335 Feb 19 22:47 zshrc_Apple_Terminal
 ```
+
+## Viewing the backup with the web interface
+
+Plakar provides a web interface to view the backups and their content. To start the web interface, run:
+
+```bash
+$ plakar at /var/backups ui
+```
+
+Your default browser will open a new tab. You can navigate through the snapshots, view the files, and restore them.
+
+![Web UI, light mode](./images/ui-light.png)
+![Web UI, dark mode](./images/ui-dark.png)
 
 
 ## Digression: one copy is not enough
