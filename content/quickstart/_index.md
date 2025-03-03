@@ -1,6 +1,6 @@
 +++
 title = "Quick start"
-date = "2025-03-13 21:00:00 +0100"
+date = "2025-03-03 17:00:00 +0100"
 weight = 1
 chapter = false
 pre = "<b>1. </b>"
