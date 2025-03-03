@@ -16,7 +16,7 @@ At the time of this writing, we do not yet provide packages and **plakar** has t
 To install the Go toolchain, please refer to the [official documentation](https://golang.org/doc/install) or run the following commands:
 
 * **MacOS**: `brew install go`
-* **Debian/Ubuntu**: `sudo apt-get update && apt-get install -y ca-certificates golang`
+* **Debian/Ubuntu**: `sudo apt-get update && sudo apt-get install -y ca-certificates golang`
 * **OpenBSD**: `doas pkg_add go`
 
 By default, *plakar* is installed in *~/go/bin*. Run `export PATH=$PATH:~/go/bin` to add it to your PATH.
