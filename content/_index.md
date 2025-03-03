@@ -59,12 +59,12 @@ and use at your own risks.
 ## Current state
 
 At this stage of development,
-it is not yet suitable for production and should be used for testing purposes.
+it is not yet suitable for production but can definitely be used for testing and validation purposes.
 
 
 ## Requirements
 
-It requires Go 1.22 or higher.
+It requires Go 1.23.3 or higher.
 
 
 ## Installation
