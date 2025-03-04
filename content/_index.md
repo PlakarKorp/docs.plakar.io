@@ -1,6 +1,6 @@
 # What's plakar ?
 
-`plakar` is a **free** and [opensource](https://github.com/poolpOrg/plakar) utility to create
+`plakar` is a **free** and [opensource](https://github.com/PlakarKorp/plakar) utility to create
 **distributed**, **versioned** **backups** with **compression**, **encryption** and data **deduplication**.
 
 With a very clear goal to simplify backups,
