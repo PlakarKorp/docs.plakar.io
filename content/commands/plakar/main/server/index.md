@@ -1,5 +1,5 @@
 ---
-date: "2025-03-03T17:17:17Z"
+date: "2025-03-18T10:07:31Z"
 title: server
 summary: "Start a Plakar server"
 ---
@@ -31,7 +31,7 @@ The options are as follows:
 > By default, delete operations are disabled to prevent accidental data
 > loss.
 
-listen *address*
+**-listen** *address*
 
 > The hostname and port where to listen to, separated by a colon.
 > The hostname is optional.

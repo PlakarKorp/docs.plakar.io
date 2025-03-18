@@ -1,5 +1,5 @@
 ---
-date: "2025-03-03T17:17:17Z"
+date: "2025-03-18T10:07:31Z"
 title: cat
 summary: "Display file contents from a Plakar snapshot"
 ---
@@ -14,14 +14,14 @@ PLAKAR-CAT(1) - General Commands Manual
 **plakar cat**
 \[**-no-decompress**]
 \[**-highlight**]
-*snapshotID*:*filepath&nbsp;...*
+*snapshotID*:*path&nbsp;...*
 
 ## DESCRIPTION
 
 The
 **plakar cat**
 command outputs the contents of
-*filepath*
+*path*
 within Plakar snapshots to the
 standard output.
 It can decompress compressed files and optionally apply syntax

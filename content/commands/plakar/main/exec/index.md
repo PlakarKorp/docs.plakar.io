@@ -1,5 +1,5 @@
 ---
-date: "2025-03-03T17:17:17Z"
+date: "2025-03-18T10:07:31Z"
 title: exec
 summary: "Execute a file from a Plakar snapshot"
 ---
@@ -12,7 +12,7 @@ PLAKAR-EXEC(1) - General Commands Manual
 ## SYNOPSIS
 
 **plakar exec**
-*snapshotID*:*filepath*
+*snapshotID*:*path*
 \[*command\_args&nbsp;...*]
 
 ## DESCRIPTION
@@ -20,7 +20,7 @@ PLAKAR-EXEC(1) - General Commands Manual
 The
 **plakar exec**
 command extracts and executes a file at
-*filepath*
+*path*
 from a Plakar snapshot passing the given arguments
 *command\_args*
 to it.

@@ -1,5 +1,5 @@
 ---
-date: "2025-03-03T17:17:17Z"
+date: "2025-03-18T10:07:31Z"
 title: rm
 summary: "Remove snapshots from a Plakar repository"
 ---
@@ -84,7 +84,8 @@ The arguments are as follows:
 
 **-since** *date*
 
-> Filter snapshots matching filters and created since the specified date, included.
+> Filter snapshots matching filters and created since the specified date,
+> included.
 > Accepted formats include relative durations
 > (e.g. 2d for two days, 1w for one week)
 > or specific dates in various formats

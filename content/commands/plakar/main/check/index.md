@@ -1,9 +1,9 @@
 ---
-date: "2025-03-03T17:17:17Z"
+date: "2025-03-18T10:07:31Z"
 title: check
 summary: "Check data integrity in a Plakar repository"
 ---
-PLAKAR(CHECK) - CHECK (1)
+PLAKAR-CHECK(1) - General Commands Manual
 
 ## NAME
 
@@ -76,7 +76,8 @@ The options are as follows:
 
 **-before** *date*
 
-> Only apply command to snapshots matching filters and older than the specified date.
+> Only apply command to snapshots matching filters and older than the specified
+> date.
 > Accepted formats include relative durations
 > (e.g. 2d for two days, 1w for one week)
 > or specific dates in various formats
@@ -84,7 +85,8 @@ The options are as follows:
 
 **-since** *date*
 
-> Only apply command to snapshots matching filters and created since the specified date, included.
+> Only apply command to snapshots matching filters and created since the specified
+> date, included.
 > Accepted formats include relative durations
 > (e.g. 2d for two days, 1w for one week)
 > or specific dates in various formats

@@ -1,5 +1,5 @@
 ---
-date: "2025-03-03T17:17:17Z"
+date: "2025-03-18T10:07:31Z"
 title: plakar
 summary: "effortless backups"
 ---
@@ -148,7 +148,7 @@ The following commands are available:
 
 **exec**
 
-> Execute a file froma a Plakar snapshot, documented in
+> Execute a file from a Plakar snapshot, documented in
 > plakar-exec(1).
 
 **help**
@@ -212,7 +212,7 @@ The following commands are available:
 
 ## ENVIRONMENT
 
-EV PLAKAR\_PASSPHRASE
+`PLAKAR_PASSPHRASE`
 
 > Passphrase to unlock the repository, overrides the one from the configuration.
 > If set,

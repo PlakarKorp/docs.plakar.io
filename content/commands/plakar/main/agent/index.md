@@ -1,5 +1,5 @@
 ---
-date: "2025-03-03T17:17:17Z"
+date: "2025-03-18T10:07:31Z"
 title: agent
 summary: "Run the Plakar agent"
 ---
@@ -21,7 +21,7 @@ PLAKAR-AGENT(1) - General Commands Manual
 The
 **plakar agent**
 command starts the Plakar agent which will execute subsequent
-plakar
+plakar(1)
 commands on their behalfs for faster processing.
 **plakar agent**
 continues running indefinitely.
