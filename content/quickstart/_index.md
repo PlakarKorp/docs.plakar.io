@@ -26,14 +26,14 @@ By default, *plakar* is installed in *~/go/bin*. Run `export PATH=$PATH:~/go/bin
 Install **plakar**:
 
 ```bash
-$ go install github.com/PlakarKorp/plakar/cmd/plakar@v1.0.0-beta.9
+$ go install github.com/PlakarKorp/plakar/cmd/plakar@latest
 ```
 
 To verify the installation was successful, run:
 
 ```bash
 $ plakar version
-v1.0.0-beta.9
+v1.0.1-beta.12
 ```
 
 ## Running the local agent
