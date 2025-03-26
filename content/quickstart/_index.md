@@ -33,7 +33,7 @@ To verify the installation was successful, run:
 
 ```bash
 $ plakar version
-v1.0.1-beta.12
+v1.0.1-beta.13
 ```
 
 ## Running the local agent
