@@ -33,16 +33,20 @@ To verify the installation was successful, run:
 
 ```bash
 $ plakar version
-v1.0.1-beta.13
+plakar/v1.0.1-main
+ 
+importers: fs, ftp, s3, sftp, stdin
+exporters: fs, ftp, s3, sftp, stderr, stdout
+klosets: fs, http, https, ptar, s3, sftp, sqlite
 ```
 
 ## Running the local agent
 
 To work efficiently,
 **plakar** requires each user to run a local agent that will provide caching among other things.
-If the agent is not running,
-the **plakar** CLI will operate in degraded mode as a safety net,
-but will disallow concurrent commands and won't benefit from caching.
+Although the agent is not strictly mandatory, it is highly recommended for optimal performance.
+If the agent is not running, the **plakar** CLI will fail for most commands unless explicitly set to run without,
+in which case it will disallow concurrent commands and won't benefit from caching.
 
 Start the agent:
 ```bash
@@ -52,10 +56,10 @@ agent started with pid=12539
 
 The agent can be stopped with the following command:
 ```bash
-$ plakar agent -stop
+$ plakar agent stop
 ```
 
-*If you follow the quickstart but the agent is not running, a warning message will be displayed for each command. You can safely ignore this message: the agent is not mandatory but recommended for optimal performance. This warning can be removed by setting the PLAKAR_AGENTLESS environment variable as such `export PLAKAR_AGENTLESS=`*
+*If you follow the quickstart but the agent is not running, you can force **plakar** to run anyway by setting the PLAKAR_AGENTLESS environment variable as such `export PLAKAR_AGENTLESS=`*
 
 ## Creating your first local repository
 
