@@ -59,8 +59,7 @@ The agent can be stopped with the following command:
 $ plakar agent stop
 ```
 
-*If you follow the quickstart but the agent is not running, you can force **plakar** to run anyway
-by setting the PLAKAR_AGENTLESS environment variable as such `export PLAKAR_AGENTLESS=`*
+*If you follow the quickstart but the agent is not running, you can force **plakar** to run anyway by setting the PLAKAR_AGENTLESS environment variable as such `export PLAKAR_AGENTLESS=`*
 
 ## Creating your first local repository
 
