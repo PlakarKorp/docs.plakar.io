@@ -45,7 +45,7 @@ klosets: fs, http, https, ptar, s3, sftp, sqlite
 To work efficiently,
 **plakar** requires each user to run a local agent that will provide caching among other things.
 Although the agent is not strictly mandatory, it is highly recommended for optimal performance.
-If the agent is not running, the **plakar** CLI will fail unless explicietly set to run without,
+If the agent is not running, the **plakar** CLI will fail for most commands unless explicitly set to run without,
 in which case it will disallow concurrent commands and won't benefit from caching.
 
 Start the agent:
