@@ -1,5 +1,5 @@
 ---
-date: "2025-03-18T10:07:31Z"
+date: "2025-05-16T07:13:25Z"
 title: plakar
 summary: "effortless backups"
 ---
@@ -145,11 +145,6 @@ The following commands are available:
 
 > Compute digests for files in a Plakar snapshot, documented in
 > plakar-digest(1).
-
-**exec**
-
-> Execute a file from a Plakar snapshot, documented in
-> plakar-exec(1).
 
 **help**
 

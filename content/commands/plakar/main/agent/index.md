@@ -1,5 +1,5 @@
 ---
-date: "2025-03-18T10:07:31Z"
+date: "2025-05-16T07:13:25Z"
 title: agent
 summary: "Run the Plakar agent"
 ---
@@ -14,7 +14,7 @@ PLAKAR-AGENT(1) - General Commands Manual
 **plakar agent**
 \[**-foreground**]
 \[**-log**&nbsp;*filename*]
-\[**-stop**]
+\[**stop**]
 
 ## DESCRIPTION
 
@@ -38,9 +38,11 @@ The options are as follows:
 > Redirect all output to
 > *filename*.
 
-**-stop**
-
-> Terminate an agent running in the background.
+With the
+**stop**
+argument,
+**plakar agent**
+will be stopped.
 
 ## DIAGNOSTICS
 

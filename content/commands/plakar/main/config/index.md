@@ -1,5 +1,5 @@
 ---
-date: "2025-03-18T10:07:31Z"
+date: "2025-05-16T07:13:25Z"
 title: config
 summary: "Manage Plakar configuration"
 ---
@@ -110,7 +110,7 @@ Perform a backup on the
 "nas"
 repository:
 
-	$ plakar at nas backup /var/www
+	$ plakar at @nas backup /var/www
 
 The set the
 "nas"

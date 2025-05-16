@@ -1,5 +1,5 @@
 ---
-date: "2025-03-18T10:07:31Z"
+date: "2025-05-16T07:13:25Z"
 title: backup
 summary: "Create a new snapshot in a Plakar repository"
 ---
@@ -18,18 +18,23 @@ PLAKAR-BACKUP(1) - General Commands Manual
 \[**-check**]
 \[**-quiet**]
 \[**-tag**&nbsp;*tag*]
-\[*directory*]
+\[*place*]
 
 ## DESCRIPTION
 
 The
 **plakar backup**
 command creates a new snapshot of
-*directory*,
-or the current directory,
-in a Plakar repository.
+*place*,
+or the current directory.
 Snapshots can be filtered to exclude specific files or directories
 based on patterns provided through options.
+
+*place*
+can be either a path, an URI, or a label on the form
+"@*name*"
+to reference a remote configured with
+plakar-config(1).
 
 The options are as follows:
 
@@ -91,6 +96,7 @@ The **plakar backup** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 ## SEE ALSO
 
-plakar(1)
+plakar(1),
+plakar-config(1)
 
-Plakar - March 3, 2025
+Plakar - April 4, 2025
