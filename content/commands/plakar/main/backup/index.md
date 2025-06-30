@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:13:25Z"
+date: "2025-06-30T10:09:52Z"
 title: backup
 summary: "Create a new snapshot in a Plakar repository"
 ---
@@ -16,6 +16,7 @@ PLAKAR-BACKUP(1) - General Commands Manual
 \[**-exclude**&nbsp;*pattern*]
 \[**-excludes**&nbsp;*file*]
 \[**-check**]
+\[**-o**&nbsp;*option*]
 \[**-quiet**]
 \[**-tag**&nbsp;*tag*]
 \[*place*]
@@ -34,7 +35,7 @@ based on patterns provided through options.
 can be either a path, an URI, or a label on the form
 "@*name*"
 to reference a remote configured with
-plakar-config(1).
+[plakar-config(1)](../config/).
 
 The options are as follows:
 
@@ -58,6 +59,13 @@ The options are as follows:
 **-check**
 
 > Perform a full check on the backup after success.
+
+**-o** *option*
+
+> Can be used to pass extra arguments to the importer.
+> The given
+> *option*
+> takes precence over the configuration file.
 
 **-quiet**
 
@@ -96,7 +104,7 @@ The **plakar backup** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 ## SEE ALSO
 
-plakar(1),
-plakar-config(1)
+[plakar(1)](../plakar/),
+[plakar-config(1)](../config/)
 
 Plakar - April 4, 2025

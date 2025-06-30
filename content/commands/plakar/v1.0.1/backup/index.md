@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: backup
 summary: "Create a new snapshot in a Plakar repository"
 ---
@@ -34,7 +34,7 @@ based on patterns provided through options.
 can be either a path, an URI, or a label on the form
 "@*name*"
 to reference a remote configured with
-plakar-config(1).
+[plakar-config(1)](../config/).
 
 The options are as follows:
 
@@ -96,7 +96,7 @@ The **plakar backup** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 ## SEE ALSO
 
-plakar(1),
-plakar-config(1)
+[plakar(1)](../plakar/),
+[plakar-config(1)](../config/)
 
 Plakar - April 4, 2025

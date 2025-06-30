@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:13:25Z"
+date: "2025-06-30T10:09:52Z"
 title: create
 summary: "Create a new Plakar repository"
 ---
@@ -12,9 +12,7 @@ PLAKAR-CREATE(1) - General Commands Manual
 ## SYNOPSIS
 
 **plakar create**
-\[**-hashing**&nbsp;*algorithm*]
-\[**-no-encryption**]
-\[**-no-compression**]
+\[**-plaintext**]
 
 ## DESCRIPTION
 
@@ -25,20 +23,10 @@ command creates a new Plakar repository at the specified path which defaults to
 
 The options are as follows:
 
-**-hashing** *algorithm*
-
-> Provide alternative hashing algorithm to replace the default.
-> Supported algorithms are BLAKE3 and SHA256, default is BLAKE3.
-
-**-no-encryption**
+**-plaintext**
 
 > Disable transparent encryption for the repository.
 > If specified, the repository will not use encryption.
-
-**-no-compression**
-
-> Disable transparent compression for the repository.
-> If specified, the repository will not use compression.
 
 ## ENVIRONMENT
 
@@ -61,7 +49,7 @@ The **plakar create** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 ## SEE ALSO
 
-plakar(1),
-plakar-backup(1)
+[plakar(1)](../plakar/),
+[plakar-backup(1)](../backup/)
 
 Plakar - February 3, 2025

@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: ui
 summary: "Serve the Plakar web user interface"
 ---
@@ -70,6 +70,6 @@ The **plakar ui** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 
 ## SEE ALSO
 
-plakar(1)
+[plakar(1)](../plakar/)
 
 Plakar - March 3, 2024

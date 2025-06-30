@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: maintenance
 summary: "Remove unused data from a Plakar repository"
 ---
@@ -39,6 +39,6 @@ The **plakar maintenance** utility exits&#160;0 on success, and&#160;&gt;0 if an
 
 ## SEE ALSO
 
-plakar(1)
+[plakar(1)](../plakar/)
 
 Plakar - February 1, 2025

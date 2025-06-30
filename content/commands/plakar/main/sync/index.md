@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:13:25Z"
+date: "2025-06-30T10:09:52Z"
 title: sync
 summary: "Synchronize snapshots between Plakar repositories"
 ---
@@ -139,6 +139,6 @@ The **plakar sync** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 
 ## SEE ALSO
 
-plakar(1)
+[plakar(1)](../plakar/)
 
 Plakar - April 18, 2025

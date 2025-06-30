@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: plakar
 summary: "effortless backups"
 ---
@@ -36,7 +36,7 @@ operates on the repository at
 This can be changed either by using the
 **at**
 keyword or by setting a default repository using
-plakar-config(1).
+[plakar-config(1)](../config/).
 
 The following options are available:
 
@@ -92,59 +92,59 @@ The following options are available:
 > It could be a path, an URI, or a label in the form
 > "@*name*"
 > to reference a configuration created with
-> plakar-config(1).
+> [plakar-config(1)](../config/).
 
 The following commands are available:
 
 **agent**
 
 > Run the plakar agent, documented in
-> plakar-agent(1).
+> [plakar-agent(1)](../agent/).
 
 **archive**
 
 > Create an archive from a Plakar snapshot, documented in
-> plakar-archive(1).
+> [plakar-archive(1)](../archive/).
 
 **backup**
 
 > Create a new snapshot, documented in
-> plakar-backup(1).
+> [plakar-backup(1)](../backup/).
 
 **cat**
 
 > Display file contents from a Plakar snapshot, documented in
-> plakar-cat(1).
+> [plakar-cat(1)](../cat/).
 
 **check**
 
 > Check data integrity in a Plakar repository, documented in
-> plakar-check(1).
+> [plakar-check(1)](../check/).
 
 **clone**
 
 > Clone a Plakar repository to a new location, documented in
-> plakar-clone(1).
+> [plakar-clone(1)](../clone/).
 
 **config**
 
 > Manage Plakar configuration, documented in
-> plakar-config(1).
+> [plakar-config(1)](../config/).
 
 **create**
 
 > Create a new Plakar repository, documented in
-> plakar-create(1).
+> [plakar-create(1)](../create/).
 
 **diff**
 
 > Show differences between files in a Plakar snapshot, documented in
-> plakar-diff(1).
+> [plakar-diff(1)](../diff/).
 
 **digest**
 
 > Compute digests for files in a Plakar snapshot, documented in
-> plakar-digest(1).
+> [plakar-digest(1)](../digest/).
 
 **help**
 
@@ -153,57 +153,57 @@ The following commands are available:
 **info**
 
 > Display detailed information about internal structures, documented in
-> plakar-info(1).
+> [plakar-info(1)](../info/).
 
 **locate**
 
 > Find filenames in a Plakar snapshot, documented in
-> plakar-locate(1).
+> [plakar-locate(1)](../locate/).
 
 **ls**
 
 > List snapshots and their contents in a Plakar repository, documented in
-> plakar-ls(1).
+> [plakar-ls(1)](../ls/).
 
 **maintenance**
 
 > Remove unused data from a Plakar repository, documented in
-> plakar-mantenance(1).
+> [plakar-mantenance(1)](../mantenance/).
 
 **mount**
 
 > Mount Plakar snapshots as read-only filesystem, documented in
-> plakar-mount(1).
+> [plakar-mount(1)](../mount/).
 
 **restore**
 
 > Restore files from a Plakar snapshot, documented in
-> plakar-restore(1).
+> [plakar-restore(1)](../restore/).
 
 **rm**
 
 > Remove snapshots from a Plakar repository, documented in
-> plakar-rm(1).
+> [plakar-rm(1)](../rm/).
 
 **server**
 
 > Start a Plakar server, documented in
-> plakar-server(1).
+> [plakar-server(1)](../server/).
 
 **sync**
 
 > Synchronize sanpshots between Plakar repositories, documented in
-> plakar-sync(1).
+> [plakar-sync(1)](../sync/).
 
 **ui**
 
 > Serve the Plakar web user interface, documented in
-> plakar-ui(1).
+> [plakar-ui(1)](../ui/).
 
 **version**
 
 > Display the current Plakar version, documented in
-> plakar-version(1).
+> [plakar-version(1)](../version/).
 
 ## ENVIRONMENT
 

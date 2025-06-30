@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: config
 summary: "Manage Plakar configuration"
 ---
@@ -73,7 +73,7 @@ The subcommands are as follows:
 > > Set the repository identified by
 > > *name*
 > > as the default repository used by
-> > plakar(1).
+> > [plakar(1)](../plakar/).
 
 > **set** *name option value*
 
@@ -124,6 +124,6 @@ The **plakar config** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 ## SEE ALSO
 
-plakar(1)
+[plakar(1)](../plakar/)
 
 Plakar - February 27, 2025
