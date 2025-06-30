@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:13:25Z"
+date: "2025-06-30T10:09:52Z"
 title: locate
 summary: "Find filenames in a Plakar snapshot"
 ---
@@ -117,8 +117,8 @@ The **plakar locate** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 ## SEE ALSO
 
-plakar(1),
-plakar-backup(1)
+[plakar(1)](../plakar/),
+[plakar-backup(1)](../backup/)
 
 ## CAVEATS
 

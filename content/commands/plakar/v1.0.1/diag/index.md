@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: diag
 summary: "Display detailed information about Plakar internal structures"
 ---
@@ -98,7 +98,7 @@ The **plakar diag** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 
 ## SEE ALSO
 
-plakar(1),
-plakar-snapshot(1)
+[plakar(1)](../plakar/),
+[plakar-snapshot(1)](../snapshot/)
 
 Plakar - February 3, 2025

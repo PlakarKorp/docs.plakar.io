@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: archive
 summary: "Create an archive from a Plakar snapshot"
 ---
@@ -90,7 +90,7 @@ The **plakar archive** utility exits&#160;0 on success, and&#160;&gt;0 if an err
 
 ## SEE ALSO
 
-plakar(1),
-plakar-backup(1)
+[plakar(1)](../plakar/),
+[plakar-backup(1)](../backup/)
 
 Plakar - February 3, 2025

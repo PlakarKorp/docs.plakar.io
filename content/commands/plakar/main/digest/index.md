@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:13:25Z"
+date: "2025-06-30T10:09:52Z"
 title: digest
 summary: "Compute digests for files in a Plakar snapshot"
 ---
@@ -66,6 +66,6 @@ The **plakar digest** utility exits&#160;0 on success, and&#160;&gt;0 if an erro
 
 ## SEE ALSO
 
-plakar(1)
+[plakar(1)](../plakar/)
 
 Plakar - March 3, 2025

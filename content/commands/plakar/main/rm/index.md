@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:13:25Z"
+date: "2025-06-30T10:09:52Z"
 title: rm
 summary: "Remove snapshots from a Plakar repository"
 ---
@@ -124,7 +124,7 @@ The **plakar rm** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 
 ## SEE ALSO
 
-plakar(1),
-plakar-backup(1)
+[plakar(1)](../plakar/),
+[plakar-backup(1)](../backup/)
 
 Plakar - March 3, 2025

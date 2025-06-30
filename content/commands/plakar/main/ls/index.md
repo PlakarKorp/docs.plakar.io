@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:13:25Z"
+date: "2025-06-30T10:09:52Z"
 title: ls
 summary: "List snapshots and their contents in a Plakar repository"
 ---
@@ -134,6 +134,6 @@ The **plakar ls** utility exits&#160;0 on success, and&#160;&gt;0 if an error oc
 
 ## SEE ALSO
 
-plakar(1)
+[plakar(1)](../plakar/)
 
 Plakar - February 3, 2025

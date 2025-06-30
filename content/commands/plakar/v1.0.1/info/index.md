@@ -1,5 +1,5 @@
 ---
-date: "2025-05-16T07:17:37Z"
+date: "2025-06-30T10:10:26Z"
 title: info
 summary: "Display detailed information about internal structures"
 ---
@@ -52,7 +52,7 @@ The **plakar info** utility exits&#160;0 on success, and&#160;&gt;0 if an error 
 
 ## SEE ALSO
 
-plakar(1),
-plakar-snapshot(1)
+[plakar(1)](../plakar/),
+[plakar-snapshot(1)](../snapshot/)
 
 Plakar - March 3, 2025

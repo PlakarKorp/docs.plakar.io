@@ -41,15 +41,20 @@ sort = "title"
 {{%children description="false"%}}
 EOF
 
+SUBCMDDIR=subcommands
+if ! test -d ${TMPDIR}/${SUBCMDDIR}; then
+    SUBCMDDIR=cmd/plakar/subcommands
+fi
+
 DOCUMENTS=
-for DOCUMENT in `ls ${TMPDIR}/cmd/plakar/subcommands/help/docs |sort -r`; do
+for DOCUMENT in `ls ${TMPDIR}/${SUBCMDDIR}/help/docs |sort -r`; do
     DOCUMENTS="${DOCUMENTS} ${DOCUMENT}"
 done
 
 I=10
 for DOCUMENT in ${DOCUMENTS}; do
     DOC_NAME=`echo ${DOCUMENT} | cut -d'.' -f1 |cut -d'-' -f2`
-    SUMMARY=`grep '# NAME' -A 2 ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} | tail -1 | cut -d'-' -f2 | sed 's/^ *//g'`
+    SUMMARY=`grep '# NAME' -A 2 ${TMPDIR}/${SUBCMDDIR}/help/docs/${DOCUMENT} | tail -1 | cut -d'-' -f2 | sed 's/^ *//g'`
     echo $SUMMARY
 
     echo "generating documentation for ${DOC_NAME}"
@@ -62,7 +67,11 @@ title: ${DOC_NAME}
 summary: "${SUMMARY}"
 ---
 EOF
-    cat ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} | sed 's/^#/##/g' >> ./content/commands/plakar/${VERSION}/${DOC_NAME}/index.md
+    cat ${TMPDIR}/${SUBCMDDIR}/help/docs/${DOCUMENT} \
+	| sed 's/^#/##/g' \
+	| sed -E 's/plakar-([a-z]+)\(1\)/[&](..\/\1\/)/g' \
+	| sed -E 's/plakar\(1\)/[plakar(1)](..\/plakar\/)/g' \
+	      >> ./content/commands/plakar/${VERSION}/${DOC_NAME}/index.md
     I=`expr $I + 1`
 done
 
