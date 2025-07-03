@@ -2,23 +2,28 @@
 
 VERSION=main
 
-if test x$1 != x"" ; then
+if [ "$1" != "" ]; then
     VERSION=$1
 fi
 
 tempfoo=`basename $0`
-TMPDIR=`mktemp /tmp/${tempfoo}.XXXXXX` || exit 1
-rm ${TMPDIR}
-mkdir -p ${TMPDIR}
+TMPDIR=`mktemp -d /tmp/${tempfoo}.XXXXXX` || exit 1
 
-git clone https://github.com/PlakarKorp/plakar.git -b ${VERSION} ${TMPDIR}
+onexit() {
+	rm -rf "$TMPDIR"
+	exit 1
+}
+
+trap 'onexit' EXIT INT TERM
+
+git clone --depth 1 https://github.com/PlakarKorp/plakar.git -b ${VERSION} ${TMPDIR}
 
 echo
     cd ${TMPDIR}
     commit=`git log ${VERSION} | head -4 |  grep ^commit | cut -d' ' -f2`
     date=`git log ${VERSION} | head -4 |  grep ^Date: | cut -d' ' -f2`
     author=`git log ${VERSION} | head -4 |  grep ^Author: | cut -d' ' -f2,3,4,5`
-    cd -  
+    cd -
 echo
 
 rm  -rf ./content/commands/plakar/${VERSION}/*
@@ -42,37 +47,33 @@ sort = "title"
 EOF
 
 SUBCMDDIR=subcommands
-if ! test -d ${TMPDIR}/${SUBCMDDIR}; then
+if ! test -d "${TMPDIR}/${SUBCMDDIR}"; then
     SUBCMDDIR=cmd/plakar/subcommands
 fi
 
-DOCUMENTS=
-for DOCUMENT in `ls ${TMPDIR}/${SUBCMDDIR}/help/docs |sort -r`; do
-    DOCUMENTS="${DOCUMENTS} ${DOCUMENT}"
-done
+mkdir "$TMPDIR/manpages"
+find "$TMPDIR/$SUBCMDDIR" -iname \*.[1-9] -ls -exec ln {} "$TMPDIR/manpages/" \;
+[ -f "$TMPDIR/plakar.1" ] && ln "$TMPDIR/plakar.1" "$TMPDIR/manpages/"
 
-I=10
-for DOCUMENT in ${DOCUMENTS}; do
-    DOC_NAME=`echo ${DOCUMENT} | cut -d'.' -f1 |cut -d'-' -f2`
-    SUMMARY=`grep '# NAME' -A 2 ${TMPDIR}/${SUBCMDDIR}/help/docs/${DOCUMENT} | tail -1 | cut -d'-' -f2 | sed 's/^ *//g'`
-    echo $SUMMARY
+for man in "$TMPDIR/manpages/"*; do
+	name="${man%%.[1-9]}"
+	name="${name##*/}"
+	name="${name##plakar-}"
 
-    echo "generating documentation for ${DOC_NAME}"
-    mkdir -p ./content/commands/plakar/${VERSION}/${DOC_NAME}
+	summary="$(grep -m1 ^\.Nd "$man" | sed 's/^.Nd //')"
 
-    cat <<EOF > ./content/commands/plakar/${VERSION}/${DOC_NAME}/index.md
+	echo "generating documentation for ${name}"
+	mkdir -p ./content/commands/plakar/${VERSION}/${name}
+
+	dest="./content/commands/plakar/${VERSION}/${name}/index.md"
+
+	cat <<EOF > $dest
 ---
 date: "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-title: ${DOC_NAME}
-summary: "${SUMMARY}"
+title: ${name}
+summary: "${summary}"
 ---
 EOF
-    cat ${TMPDIR}/${SUBCMDDIR}/help/docs/${DOCUMENT} \
-	| sed 's/^#/##/g' \
-	| sed -E 's/plakar-([a-z]+)\(1\)/[&](..\/\1\/)/g' \
-	| sed -E 's/plakar\(1\)/[plakar(1)](..\/plakar\/)/g' \
-	      >> ./content/commands/plakar/${VERSION}/${DOC_NAME}/index.md
-    I=`expr $I + 1`
-done
 
-rm -rf ${TMPDIR}
+	mandoc -I os=Plakar -Thtml -Ofragment,man=../%N/ "$man" >> $dest
+done
