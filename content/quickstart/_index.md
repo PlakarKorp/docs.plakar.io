@@ -19,6 +19,8 @@ To install the Go toolchain, please refer to the [official documentation](https:
 * **Debian/Ubuntu**: `sudo apt-get update && sudo apt-get install -y ca-certificates golang`
 * **OpenBSD**: `doas pkg_add go`
 
+At the time of writing this document, Plakar needs Golang 1.23.3 or higher.
+
 By default, *plakar* is installed in *~/go/bin*. Run `export PATH=$PATH:~/go/bin` to add it to your PATH.
 
 {{% /notice %}}
