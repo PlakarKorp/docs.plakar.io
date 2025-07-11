@@ -28,7 +28,7 @@ By default, *plakar* is installed in *~/go/bin*. Run `export PATH=$PATH:~/go/bin
 Install **plakar**:
 
 ```bash
-$ go install github.com/PlakarKorp/plakar/cmd/plakar@latest
+$ go install github.com/PlakarKorp/plakar@latest
 ```
 
 To verify the installation was successful, run:
