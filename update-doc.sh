@@ -58,7 +58,6 @@ find "$TMPDIR/$SUBCMDDIR" -iname \*.[1-9] -ls -exec ln {} "$TMPDIR/manpages/" \;
 for man in "$TMPDIR/manpages/"*; do
 	name="${man%%.[1-9]}"
 	name="${name##*/}"
-	name="${name##plakar-}"
 
 	summary="$(grep -m1 ^\.Nd "$man" | sed 's/^.Nd //')"
 
