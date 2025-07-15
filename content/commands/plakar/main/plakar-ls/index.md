@@ -1,5 +1,5 @@
 ---
-date: "2025-07-14T09:04:41Z"
+date: "2025-07-15T19:14:54Z"
 title: plakar-ls
 summary: "List snapshots and their contents in a Plakar repository"
 ---
