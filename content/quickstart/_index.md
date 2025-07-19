@@ -323,4 +323,4 @@ And this last command does it both ways, pushing to the remote repositories snap
 $ plakar at /var/backups sync with @s3
 ```
 
-In addition, all these commands support passing snapshot identifiers and various options to perform partial synchronizations, only exchanging snapshots that match certain criterias. More information can be found in the [documentation](/commands/sync/).
+In addition, all these commands support passing snapshot identifiers and various options to perform partial synchronizations, only exchanging snapshots that match certain criterias. More information can be found in the [documentation](/commands/plakar/main/plakar-sync/).
